@@ -23,9 +23,11 @@
 		49EDB0A913CCE30000976DAB /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07213CCE2FF00976DAB /* MWFeedParser.m */; };
 		49EDB0AB13CCE30000976DAB /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07713CCE2FF00976DAB /* NSDate+InternetDateTime.m */; };
 		49EDB0AC13CCE30000976DAB /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07913CCE2FF00976DAB /* NSString+HTML.m */; };
+		49EDB0BC13CCE56800976DAB /* DBStatusFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB0BB13CCE56800976DAB /* DBStatusFeed.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49649E2F13CCEC140004825B /* DBPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPassword.h; sourceTree = "<group>"; };
 		49EA799313CCC92D0021CA72 /* Dragon's Breath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dragon's Breath.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EA799713CCC92D0021CA72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		49EA799A13CCC92D0021CA72 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -58,6 +60,8 @@
 		49EDB07713CCE2FF00976DAB /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
 		49EDB07813CCE2FF00976DAB /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		49EDB07913CCE2FF00976DAB /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		49EDB0BA13CCE56800976DAB /* DBStatusFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBStatusFeed.h; sourceTree = "<group>"; };
+		49EDB0BB13CCE56800976DAB /* DBStatusFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBStatusFeed.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 				49EA79AA13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m */,
 				49EA79BB13CCD4720021CA72 /* DBStatusItem.h */,
 				49EA79BC13CCD4720021CA72 /* DBStatusItem.m */,
+				49EDB0BA13CCE56800976DAB /* DBStatusFeed.h */,
+				49EDB0BB13CCE56800976DAB /* DBStatusFeed.m */,
 				49EA79AC13CCC92D0021CA72 /* MainMenu.xib */,
 				49EDAFC713CCE29300976DAB /* Other Sources */,
 				49EA79B413CCCC500021CA72 /* Icons */,
@@ -131,6 +137,7 @@
 				49EA79A313CCC92D0021CA72 /* Dragon's Breath-Prefix.pch */,
 				49EA79A413CCC92D0021CA72 /* main.m */,
 				49EA79A613CCC92D0021CA72 /* Credits.rtf */,
+				49649E2F13CCEC140004825B /* DBPassword.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -254,6 +261,7 @@
 				49EDB0A913CCE30000976DAB /* MWFeedParser.m in Sources */,
 				49EDB0AB13CCE30000976DAB /* NSDate+InternetDateTime.m in Sources */,
 				49EDB0AC13CCE30000976DAB /* NSString+HTML.m in Sources */,
+				49EDB0BC13CCE56800976DAB /* DBStatusFeed.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

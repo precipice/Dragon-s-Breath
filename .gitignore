@@ -1,3 +1,6 @@
+# project-specific
+*DBPassword.h
+
 # xcode noise
 build/*
 *.pbxuser

@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MWFeedParser.h"
-
+#import "DBStatusFeed.h"
 
 @interface DBStatusItem : NSObject {
 @private
@@ -18,6 +17,7 @@
     NSStatusItem *statusItem;
     NSImage *statusImage;
     NSImage *statusHighlightImage;
+    DBStatusFeed *statusFeed;
 }
 
 -(IBAction) helloWorld:(id)sender;

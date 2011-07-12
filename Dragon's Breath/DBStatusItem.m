@@ -11,7 +11,7 @@
 
 @implementation DBStatusItem
 
--(void) awakeFromNib {
+- (void)awakeFromNib {
     statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength] retain];
     statusImage = [NSImage imageNamed:@"disabled-icon.png"];
     statusHighlightImage = [NSImage imageNamed:@"black-icon.png"];
@@ -24,14 +24,19 @@
     [statusItem setHighlightMode:YES];
 }
 
--(void) dealloc {
+- (IBAction)helloWorld:(id)sender {
+    [statusItem setImage:statusHighlightImage];
+    statusFeed = [[DBStatusFeed alloc] init];
+    [statusFeed pollFeed];
+}
+
+- (void)dealloc {
     [statusImage release];
     [statusHighlightImage release];
+    [statusFeed release];
+    
     [super dealloc];
 }
 
--(IBAction) helloWorld:(id)sender {
-    [statusItem setImage:statusHighlightImage];
-}
 
 @end
