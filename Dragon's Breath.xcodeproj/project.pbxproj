@@ -17,6 +17,12 @@
 		49EA79B913CCCC500021CA72 /* disabled-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79B613CCCC500021CA72 /* disabled-icon.png */; };
 		49EA79BA13CCCC500021CA72 /* white-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79B713CCCC500021CA72 /* white-icon.png */; };
 		49EA79BD13CCD4720021CA72 /* DBStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EA79BC13CCD4720021CA72 /* DBStatusItem.m */; };
+		49EDB0A613CCE30000976DAB /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB06C13CCE2FF00976DAB /* GTMNSString+HTML.m */; };
+		49EDB0A713CCE30000976DAB /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB06E13CCE2FF00976DAB /* MWFeedInfo.m */; };
+		49EDB0A813CCE30000976DAB /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07013CCE2FF00976DAB /* MWFeedItem.m */; };
+		49EDB0A913CCE30000976DAB /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07213CCE2FF00976DAB /* MWFeedParser.m */; };
+		49EDB0AB13CCE30000976DAB /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07713CCE2FF00976DAB /* NSDate+InternetDateTime.m */; };
+		49EDB0AC13CCE30000976DAB /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07913CCE2FF00976DAB /* NSString+HTML.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,20 @@
 		49EA79B713CCCC500021CA72 /* white-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-icon.png"; sourceTree = "<group>"; };
 		49EA79BB13CCD4720021CA72 /* DBStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBStatusItem.h; sourceTree = "<group>"; };
 		49EA79BC13CCD4720021CA72 /* DBStatusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBStatusItem.m; sourceTree = "<group>"; };
+		49EDB06A13CCE2FF00976DAB /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		49EDB06B13CCE2FF00976DAB /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		49EDB06C13CCE2FF00976DAB /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		49EDB06D13CCE2FF00976DAB /* MWFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedInfo.h; sourceTree = "<group>"; };
+		49EDB06E13CCE2FF00976DAB /* MWFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedInfo.m; sourceTree = "<group>"; };
+		49EDB06F13CCE2FF00976DAB /* MWFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedItem.h; sourceTree = "<group>"; };
+		49EDB07013CCE2FF00976DAB /* MWFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedItem.m; sourceTree = "<group>"; };
+		49EDB07113CCE2FF00976DAB /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser.h; sourceTree = "<group>"; };
+		49EDB07213CCE2FF00976DAB /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedParser.m; sourceTree = "<group>"; };
+		49EDB07313CCE2FF00976DAB /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser_Private.h; sourceTree = "<group>"; };
+		49EDB07613CCE2FF00976DAB /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
+		49EDB07713CCE2FF00976DAB /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
+		49EDB07813CCE2FF00976DAB /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		49EDB07913CCE2FF00976DAB /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,12 +111,13 @@
 		49EA799D13CCC92D0021CA72 /* Dragon's Breath */ = {
 			isa = PBXGroup;
 			children = (
-				49EA79B413CCCC500021CA72 /* Icons */,
 				49EA79A913CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.h */,
 				49EA79AA13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m */,
 				49EA79BB13CCD4720021CA72 /* DBStatusItem.h */,
 				49EA79BC13CCD4720021CA72 /* DBStatusItem.m */,
 				49EA79AC13CCC92D0021CA72 /* MainMenu.xib */,
+				49EDAFC713CCE29300976DAB /* Other Sources */,
+				49EA79B413CCCC500021CA72 /* Icons */,
 				49EA799E13CCC92D0021CA72 /* Supporting Files */,
 			);
 			path = "Dragon's Breath";
@@ -122,6 +143,43 @@
 				49EA79B713CCCC500021CA72 /* white-icon.png */,
 			);
 			path = Icons;
+			sourceTree = "<group>";
+		};
+		49EDAFC713CCE29300976DAB /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				49EDB04113CCE2FF00976DAB /* MWFeedParser */,
+			);
+			path = "Other Sources";
+			sourceTree = "<group>";
+		};
+		49EDB04113CCE2FF00976DAB /* MWFeedParser */ = {
+			isa = PBXGroup;
+			children = (
+				49EDB06713CCE2FF00976DAB /* Classes */,
+			);
+			path = MWFeedParser;
+			sourceTree = "<group>";
+		};
+		49EDB06713CCE2FF00976DAB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				49EDB06A13CCE2FF00976DAB /* GTMDefines.h */,
+				49EDB06B13CCE2FF00976DAB /* GTMNSString+HTML.h */,
+				49EDB06C13CCE2FF00976DAB /* GTMNSString+HTML.m */,
+				49EDB06D13CCE2FF00976DAB /* MWFeedInfo.h */,
+				49EDB06E13CCE2FF00976DAB /* MWFeedInfo.m */,
+				49EDB06F13CCE2FF00976DAB /* MWFeedItem.h */,
+				49EDB07013CCE2FF00976DAB /* MWFeedItem.m */,
+				49EDB07113CCE2FF00976DAB /* MWFeedParser.h */,
+				49EDB07213CCE2FF00976DAB /* MWFeedParser.m */,
+				49EDB07313CCE2FF00976DAB /* MWFeedParser_Private.h */,
+				49EDB07613CCE2FF00976DAB /* NSDate+InternetDateTime.h */,
+				49EDB07713CCE2FF00976DAB /* NSDate+InternetDateTime.m */,
+				49EDB07813CCE2FF00976DAB /* NSString+HTML.h */,
+				49EDB07913CCE2FF00976DAB /* NSString+HTML.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +248,12 @@
 				49EA79A513CCC92D0021CA72 /* main.m in Sources */,
 				49EA79AB13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m in Sources */,
 				49EA79BD13CCD4720021CA72 /* DBStatusItem.m in Sources */,
+				49EDB0A613CCE30000976DAB /* GTMNSString+HTML.m in Sources */,
+				49EDB0A713CCE30000976DAB /* MWFeedInfo.m in Sources */,
+				49EDB0A813CCE30000976DAB /* MWFeedItem.m in Sources */,
+				49EDB0A913CCE30000976DAB /* MWFeedParser.m in Sources */,
+				49EDB0AB13CCE30000976DAB /* NSDate+InternetDateTime.m in Sources */,
+				49EDB0AC13CCE30000976DAB /* NSString+HTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +370,7 @@
 				49EA79B313CCC92D0021CA72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

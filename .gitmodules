@@ -1,0 +1,3 @@
+[submodule "Dragon's Breath/Other Sources/MWFeedParser"]
+	path = Dragon's Breath/Other Sources/MWFeedParser
+	url = https://github.com/mwaterfall/MWFeedParser.git

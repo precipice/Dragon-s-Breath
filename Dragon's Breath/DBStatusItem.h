@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MWFeedParser.h"
+
 
 @interface DBStatusItem : NSObject {
 @private
