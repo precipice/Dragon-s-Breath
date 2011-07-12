@@ -1,0 +1,285 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49EA799813CCC92D0021CA72 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EA799713CCC92D0021CA72 /* Cocoa.framework */; };
+		49EA79A213CCC92D0021CA72 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79A013CCC92D0021CA72 /* InfoPlist.strings */; };
+		49EA79A513CCC92D0021CA72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EA79A413CCC92D0021CA72 /* main.m */; };
+		49EA79A813CCC92D0021CA72 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79A613CCC92D0021CA72 /* Credits.rtf */; };
+		49EA79AB13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EA79AA13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m */; };
+		49EA79AE13CCC92D0021CA72 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79AC13CCC92D0021CA72 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		49EA799313CCC92D0021CA72 /* Dragon's Breath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dragon's Breath.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49EA799713CCC92D0021CA72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		49EA799A13CCC92D0021CA72 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		49EA799B13CCC92D0021CA72 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		49EA799C13CCC92D0021CA72 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		49EA799F13CCC92D0021CA72 /* Dragon's Breath-Info.plist */ = {isa = PBXFileReference; path = "Dragon's Breath-Info.plist"; sourceTree = "<group>"; };
+		49EA79A113CCC92D0021CA72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		49EA79A313CCC92D0021CA72 /* Dragon's Breath-Prefix.pch */ = {isa = PBXFileReference; path = "Dragon's Breath-Prefix.pch"; sourceTree = "<group>"; };
+		49EA79A413CCC92D0021CA72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		49EA79A713CCC92D0021CA72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		49EA79A913CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.h */ = {isa = PBXFileReference; path = Dragon_s_BreathAppDelegate.h; sourceTree = "<group>"; };
+		49EA79AA13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dragon_s_BreathAppDelegate.m; sourceTree = "<group>"; };
+		49EA79AD13CCC92D0021CA72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49EA799013CCC92D0021CA72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49EA799813CCC92D0021CA72 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49EA798813CCC92C0021CA72 = {
+			isa = PBXGroup;
+			children = (
+				49EA799D13CCC92D0021CA72 /* Dragon's Breath */,
+				49EA799613CCC92D0021CA72 /* Frameworks */,
+				49EA799413CCC92D0021CA72 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		49EA799413CCC92D0021CA72 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49EA799313CCC92D0021CA72 /* Dragon's Breath.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49EA799613CCC92D0021CA72 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49EA799713CCC92D0021CA72 /* Cocoa.framework */,
+				49EA799913CCC92D0021CA72 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49EA799913CCC92D0021CA72 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49EA799A13CCC92D0021CA72 /* AppKit.framework */,
+				49EA799B13CCC92D0021CA72 /* CoreData.framework */,
+				49EA799C13CCC92D0021CA72 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		49EA799D13CCC92D0021CA72 /* Dragon's Breath */ = {
+			isa = PBXGroup;
+			children = (
+				49EA79A913CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.h */,
+				49EA79AA13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m */,
+				49EA79AC13CCC92D0021CA72 /* MainMenu.xib */,
+				49EA799E13CCC92D0021CA72 /* Supporting Files */,
+			);
+			path = "Dragon's Breath";
+			sourceTree = "<group>";
+		};
+		49EA799E13CCC92D0021CA72 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				49EA799F13CCC92D0021CA72 /* Dragon's Breath-Info.plist */,
+				49EA79A013CCC92D0021CA72 /* InfoPlist.strings */,
+				49EA79A313CCC92D0021CA72 /* Dragon's Breath-Prefix.pch */,
+				49EA79A413CCC92D0021CA72 /* main.m */,
+				49EA79A613CCC92D0021CA72 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49EA799213CCC92D0021CA72 /* Dragon's Breath */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49EA79B113CCC92D0021CA72 /* Build configuration list for PBXNativeTarget "Dragon's Breath" */;
+			buildPhases = (
+				49EA798F13CCC92D0021CA72 /* Sources */,
+				49EA799013CCC92D0021CA72 /* Frameworks */,
+				49EA799113CCC92D0021CA72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Dragon's Breath";
+			productName = "Dragon's Breath";
+			productReference = 49EA799313CCC92D0021CA72 /* Dragon's Breath.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49EA798A13CCC92C0021CA72 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 49EA798D13CCC92C0021CA72 /* Build configuration list for PBXProject "Dragon's Breath" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 49EA798813CCC92C0021CA72;
+			productRefGroup = 49EA799413CCC92D0021CA72 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49EA799213CCC92D0021CA72 /* Dragon's Breath */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49EA799113CCC92D0021CA72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49EA79A213CCC92D0021CA72 /* InfoPlist.strings in Resources */,
+				49EA79A813CCC92D0021CA72 /* Credits.rtf in Resources */,
+				49EA79AE13CCC92D0021CA72 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49EA798F13CCC92D0021CA72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49EA79A513CCC92D0021CA72 /* main.m in Sources */,
+				49EA79AB13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		49EA79A013CCC92D0021CA72 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49EA79A113CCC92D0021CA72 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		49EA79A613CCC92D0021CA72 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49EA79A713CCC92D0021CA72 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		49EA79AC13CCC92D0021CA72 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49EA79AD13CCC92D0021CA72 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		49EA79AF13CCC92D0021CA72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		49EA79B013CCC92D0021CA72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		49EA79B213CCC92D0021CA72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dragon's Breath/Dragon's Breath-Prefix.pch";
+				INFOPLIST_FILE = "Dragon's Breath/Dragon's Breath-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		49EA79B313CCC92D0021CA72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dragon's Breath/Dragon's Breath-Prefix.pch";
+				INFOPLIST_FILE = "Dragon's Breath/Dragon's Breath-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49EA798D13CCC92C0021CA72 /* Build configuration list for PBXProject "Dragon's Breath" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49EA79AF13CCC92D0021CA72 /* Debug */,
+				49EA79B013CCC92D0021CA72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49EA79B113CCC92D0021CA72 /* Build configuration list for PBXNativeTarget "Dragon's Breath" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49EA79B213CCC92D0021CA72 /* Debug */,
+				49EA79B313CCC92D0021CA72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49EA798A13CCC92C0021CA72 /* Project object */;
+}

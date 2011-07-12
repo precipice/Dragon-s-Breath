@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Dragon's Breath' target in the 'Dragon's Breath' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
