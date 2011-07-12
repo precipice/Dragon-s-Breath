@@ -13,6 +13,10 @@
 		49EA79A813CCC92D0021CA72 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79A613CCC92D0021CA72 /* Credits.rtf */; };
 		49EA79AB13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EA79AA13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m */; };
 		49EA79AE13CCC92D0021CA72 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79AC13CCC92D0021CA72 /* MainMenu.xib */; };
+		49EA79B813CCCC500021CA72 /* black-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79B513CCCC500021CA72 /* black-icon.png */; };
+		49EA79B913CCCC500021CA72 /* disabled-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79B613CCCC500021CA72 /* disabled-icon.png */; };
+		49EA79BA13CCCC500021CA72 /* white-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79B713CCCC500021CA72 /* white-icon.png */; };
+		49EA79BD13CCD4720021CA72 /* DBStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EA79BC13CCD4720021CA72 /* DBStatusItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +25,19 @@
 		49EA799A13CCC92D0021CA72 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		49EA799B13CCC92D0021CA72 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		49EA799C13CCC92D0021CA72 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		49EA799F13CCC92D0021CA72 /* Dragon's Breath-Info.plist */ = {isa = PBXFileReference; path = "Dragon's Breath-Info.plist"; sourceTree = "<group>"; };
+		49EA799F13CCC92D0021CA72 /* Dragon's Breath-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Dragon's Breath-Info.plist"; sourceTree = "<group>"; };
 		49EA79A113CCC92D0021CA72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		49EA79A313CCC92D0021CA72 /* Dragon's Breath-Prefix.pch */ = {isa = PBXFileReference; path = "Dragon's Breath-Prefix.pch"; sourceTree = "<group>"; };
+		49EA79A313CCC92D0021CA72 /* Dragon's Breath-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dragon's Breath-Prefix.pch"; sourceTree = "<group>"; };
 		49EA79A413CCC92D0021CA72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49EA79A713CCC92D0021CA72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		49EA79A913CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.h */ = {isa = PBXFileReference; path = Dragon_s_BreathAppDelegate.h; sourceTree = "<group>"; };
+		49EA79A913CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dragon_s_BreathAppDelegate.h; sourceTree = "<group>"; };
 		49EA79AA13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dragon_s_BreathAppDelegate.m; sourceTree = "<group>"; };
 		49EA79AD13CCC92D0021CA72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		49EA79B513CCCC500021CA72 /* black-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black-icon.png"; sourceTree = "<group>"; };
+		49EA79B613CCCC500021CA72 /* disabled-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disabled-icon.png"; sourceTree = "<group>"; };
+		49EA79B713CCCC500021CA72 /* white-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-icon.png"; sourceTree = "<group>"; };
+		49EA79BB13CCD4720021CA72 /* DBStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBStatusItem.h; sourceTree = "<group>"; };
+		49EA79BC13CCD4720021CA72 /* DBStatusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBStatusItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +91,11 @@
 		49EA799D13CCC92D0021CA72 /* Dragon's Breath */ = {
 			isa = PBXGroup;
 			children = (
+				49EA79B413CCCC500021CA72 /* Icons */,
 				49EA79A913CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.h */,
 				49EA79AA13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m */,
+				49EA79BB13CCD4720021CA72 /* DBStatusItem.h */,
+				49EA79BC13CCD4720021CA72 /* DBStatusItem.m */,
 				49EA79AC13CCC92D0021CA72 /* MainMenu.xib */,
 				49EA799E13CCC92D0021CA72 /* Supporting Files */,
 			);
@@ -100,6 +112,16 @@
 				49EA79A613CCC92D0021CA72 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		49EA79B413CCCC500021CA72 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				49EA79B513CCCC500021CA72 /* black-icon.png */,
+				49EA79B613CCCC500021CA72 /* disabled-icon.png */,
+				49EA79B713CCCC500021CA72 /* white-icon.png */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +174,9 @@
 				49EA79A213CCC92D0021CA72 /* InfoPlist.strings in Resources */,
 				49EA79A813CCC92D0021CA72 /* Credits.rtf in Resources */,
 				49EA79AE13CCC92D0021CA72 /* MainMenu.xib in Resources */,
+				49EA79B813CCCC500021CA72 /* black-icon.png in Resources */,
+				49EA79B913CCCC500021CA72 /* disabled-icon.png in Resources */,
+				49EA79BA13CCCC500021CA72 /* white-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +189,7 @@
 			files = (
 				49EA79A513CCC92D0021CA72 /* main.m in Sources */,
 				49EA79AB13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m in Sources */,
+				49EA79BD13CCD4720021CA72 /* DBStatusItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +265,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dragon's Breath/Dragon's Breath-Prefix.pch";
 				INFOPLIST_FILE = "Dragon's Breath/Dragon's Breath-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -254,6 +281,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dragon's Breath/Dragon's Breath-Prefix.pch";
 				INFOPLIST_FILE = "Dragon's Breath/Dragon's Breath-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
