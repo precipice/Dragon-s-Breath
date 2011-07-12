@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "DBPassword.h"
 #import "DBStatusFeed.h"
+
+#define RUNNING_GAMES_URL @"http://www.dragongoserver.net/show_games.php"
+#define WAITING_ROOM_URL @"http://www.dragongoserver.net/waiting_room.php"
 
 @interface DBStatusItem : NSObject {
 @private
@@ -20,6 +24,10 @@
     DBStatusFeed *statusFeed;
 }
 
--(IBAction) helloWorld:(id)sender;
+- (IBAction)helloWorld:(id)sender;
+- (IBAction)openRunningGames:(id)sender;
+- (IBAction)openWaitingRoom:(id)sender;
+
+
 
 @end

@@ -30,6 +30,18 @@
     [statusFeed pollFeed];
 }
 
+
+- (IBAction)openRunningGames:(id)sender {
+    NSString *urlString = [NSString stringWithFormat:@"%@?%@", RUNNING_GAMES_URL, DRAGON_USERID];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:urlString]];
+}
+
+
+- (IBAction)openWaitingRoom:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:WAITING_ROOM_URL]];
+}
+
+
 - (void)dealloc {
     [statusImage release];
     [statusHighlightImage release];
