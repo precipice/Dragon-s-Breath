@@ -24,10 +24,15 @@
     [statusItem setHighlightMode:YES];
 }
 
-- (IBAction)helloWorld:(id)sender {
+- (IBAction)refresh:(id)sender {
     [statusItem setImage:statusHighlightImage];
     statusFeed = [[DBStatusFeed alloc] init];
     [statusFeed pollFeed];
+}
+
+
+- (IBAction)openStatus:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:STATUS_URL]];
 }
 
 

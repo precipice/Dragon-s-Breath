@@ -11,6 +11,7 @@
 #import "DBPassword.h"
 #import "DBStatusFeed.h"
 
+#define STATUS_URL @"http://www.dragongoserver.net/status.php"
 #define RUNNING_GAMES_URL @"http://www.dragongoserver.net/show_games.php"
 #define WAITING_ROOM_URL @"http://www.dragongoserver.net/waiting_room.php"
 
@@ -24,7 +25,8 @@
     DBStatusFeed *statusFeed;
 }
 
-- (IBAction)helloWorld:(id)sender;
+- (IBAction)refresh:(id)sender;
+- (IBAction)openStatus:(id)sender;
 - (IBAction)openRunningGames:(id)sender;
 - (IBAction)openWaitingRoom:(id)sender;
 
