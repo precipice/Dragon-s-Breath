@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4923CF8013CD667E00FD5F6B /* DBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4923CF7F13CD667E00FD5F6B /* DBGame.m */; };
+		49617B8513CD252400D9010D /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 49617B7B13CD252400D9010D /* RegexKitLite.m */; };
 		49EA799813CCC92D0021CA72 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EA799713CCC92D0021CA72 /* Cocoa.framework */; };
 		49EA79A213CCC92D0021CA72 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79A013CCC92D0021CA72 /* InfoPlist.strings */; };
 		49EA79A513CCC92D0021CA72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EA79A413CCC92D0021CA72 /* main.m */; };
@@ -23,10 +25,14 @@
 		49EDB0A913CCE30000976DAB /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07213CCE2FF00976DAB /* MWFeedParser.m */; };
 		49EDB0AB13CCE30000976DAB /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07713CCE2FF00976DAB /* NSDate+InternetDateTime.m */; };
 		49EDB0AC13CCE30000976DAB /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07913CCE2FF00976DAB /* NSString+HTML.m */; };
-		49EDB0BC13CCE56800976DAB /* DBStatusFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB0BB13CCE56800976DAB /* DBStatusFeed.m */; };
+		49EDB0BC13CCE56800976DAB /* DBFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB0BB13CCE56800976DAB /* DBFeedParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4923CF7E13CD667E00FD5F6B /* DBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBGame.h; sourceTree = "<group>"; };
+		4923CF7F13CD667E00FD5F6B /* DBGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBGame.m; sourceTree = "<group>"; };
+		49617B7913CD252400D9010D /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		49617B7B13CD252400D9010D /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		49649E2F13CCEC140004825B /* DBPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPassword.h; sourceTree = "<group>"; };
 		49EA799313CCC92D0021CA72 /* Dragon's Breath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dragon's Breath.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EA799713CCC92D0021CA72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -60,8 +66,8 @@
 		49EDB07713CCE2FF00976DAB /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
 		49EDB07813CCE2FF00976DAB /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		49EDB07913CCE2FF00976DAB /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
-		49EDB0BA13CCE56800976DAB /* DBStatusFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBStatusFeed.h; sourceTree = "<group>"; };
-		49EDB0BB13CCE56800976DAB /* DBStatusFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBStatusFeed.m; sourceTree = "<group>"; };
+		49EDB0BA13CCE56800976DAB /* DBFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DBFeedParser.h; sourceTree = "<group>"; };
+		49EDB0BB13CCE56800976DAB /* DBFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFeedParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49617B6E13CD252400D9010D /* RegexKitLite-4.0 */ = {
+			isa = PBXGroup;
+			children = (
+				49617B7913CD252400D9010D /* RegexKitLite.h */,
+				49617B7B13CD252400D9010D /* RegexKitLite.m */,
+			);
+			path = "RegexKitLite-4.0";
+			sourceTree = "<group>";
+		};
 		49EA798813CCC92C0021CA72 = {
 			isa = PBXGroup;
 			children = (
@@ -117,10 +132,12 @@
 			children = (
 				49EA79A913CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.h */,
 				49EA79AA13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m */,
+				4923CF7E13CD667E00FD5F6B /* DBGame.h */,
+				4923CF7F13CD667E00FD5F6B /* DBGame.m */,
 				49EA79BB13CCD4720021CA72 /* DBStatusItem.h */,
 				49EA79BC13CCD4720021CA72 /* DBStatusItem.m */,
-				49EDB0BA13CCE56800976DAB /* DBStatusFeed.h */,
-				49EDB0BB13CCE56800976DAB /* DBStatusFeed.m */,
+				49EDB0BA13CCE56800976DAB /* DBFeedParser.h */,
+				49EDB0BB13CCE56800976DAB /* DBFeedParser.m */,
 				49EA79AC13CCC92D0021CA72 /* MainMenu.xib */,
 				49EDAFC713CCE29300976DAB /* Other Sources */,
 				49EA79B413CCCC500021CA72 /* Icons */,
@@ -155,6 +172,7 @@
 		49EDAFC713CCE29300976DAB /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				49617B6E13CD252400D9010D /* RegexKitLite-4.0 */,
 				49EDB04113CCE2FF00976DAB /* MWFeedParser */,
 			);
 			path = "Other Sources";
@@ -261,7 +279,9 @@
 				49EDB0A913CCE30000976DAB /* MWFeedParser.m in Sources */,
 				49EDB0AB13CCE30000976DAB /* NSDate+InternetDateTime.m in Sources */,
 				49EDB0AC13CCE30000976DAB /* NSString+HTML.m in Sources */,
-				49EDB0BC13CCE56800976DAB /* DBStatusFeed.m in Sources */,
+				49EDB0BC13CCE56800976DAB /* DBFeedParser.m in Sources */,
+				49617B8513CD252400D9010D /* RegexKitLite.m in Sources */,
+				4923CF8013CD667E00FD5F6B /* DBGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +358,7 @@
 				GCC_PREFIX_HEADER = "Dragon's Breath/Dragon's Breath-Prefix.pch";
 				INFOPLIST_FILE = "Dragon's Breath/Dragon's Breath-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -354,6 +375,7 @@
 				GCC_PREFIX_HEADER = "Dragon's Breath/Dragon's Breath-Prefix.pch";
 				INFOPLIST_FILE = "Dragon's Breath/Dragon's Breath-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
