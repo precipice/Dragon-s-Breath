@@ -25,7 +25,6 @@
 }
 
 - (IBAction)refresh:(id)sender {
-    [statusItem setImage:statusHighlightImage];
     statusFeed = [[DBFeedParser alloc] init];
     statusFeed.delegate = self;
     [statusFeed pollFeed];
@@ -37,39 +36,33 @@
 
     if (games == nil) {
         NSLog(@"Error while downloading feed.");
+        [statusItem setImage:statusImage];
     } else if ([games count] == 0) {
-        NSMenuItem *noMovesItem = [[NSMenuItem alloc] initWithTitle:@"No Moves Waiting" 
+        NSMenuItem *noMovesItem = [[NSMenuItem alloc] initWithTitle:NO_MOVES
                                                              action:nil 
                                                       keyEquivalent:@""];
         [noMovesItem setEnabled:NO];
-        [[statusItem menu] insertItem:noMovesItem atIndex:3];        
+        [[statusItem menu] insertItem:noMovesItem atIndex:3];
+        [statusItem setImage:statusImage];
     } else {
-        [games enumerateObjectsUsingBlock:^(id game, NSUInteger idx, BOOL *stop) {
-            NSDictionary *gameFields = (NSDictionary *) game;
-            NSString *gameDescription = [NSString stringWithFormat:@"%@ (%@): %@ - %@", 
-                                         [gameFields valueForKey:@"opponent_name"],
-                                         [gameFields valueForKey:@"opponent_handle"],
-                                         [gameFields valueForKey:@"color"],
-                                         [gameFields valueForKey:@"move"]];
+        [games enumerateObjectsUsingBlock:^(id gameObj, NSUInteger idx, BOOL *stop) {
+            DBGame *game = (DBGame *) gameObj;
                                          
-            NSMenuItem *gameItem = [[NSMenuItem alloc] initWithTitle:gameDescription 
+            NSMenuItem *gameItem = [[NSMenuItem alloc] initWithTitle:[game details] 
                                                               action:@selector(openGame) 
                                                        keyEquivalent:@""];
+            [gameItem setTarget:game];
             [gameItem setEnabled:YES];
             [[statusItem menu] insertItem:gameItem atIndex:3];
         }];
+        [statusItem setImage:statusHighlightImage];
     }
 }
 
 
 - (void)clearMenu {
     [statusMenu removeItemAtIndex:
-     [statusMenu indexOfItemWithTitle:@"No Moves Waiting"]];
-}
-
-
-- (void)openGame {
-    NSLog(@"Got openGame");
+     [statusMenu indexOfItemWithTitle:NO_MOVES]];
 }
 
 

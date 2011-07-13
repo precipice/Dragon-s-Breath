@@ -11,7 +11,19 @@
 
 @interface DBGame : NSObject {
 @private
-    
 }
+
+@property(nonatomic, copy) NSString *gameId;
+@property(nonatomic, copy) NSString *link;
+@property(nonatomic, copy) NSString *title;
+@property(nonatomic, retain) NSDate *date;
+@property(nonatomic, copy) NSString *opponentName;
+@property(nonatomic, copy) NSString *opponentHandle;
+@property(nonatomic, copy) NSString *color;
+@property(nonatomic, copy) NSString *move;
+
+- (id)initWithDictionary:(NSDictionary *)gameFields;
+- (void)openGame;
+- (NSString *)details;
 
 @end

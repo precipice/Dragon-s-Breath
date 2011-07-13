@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "DBGame.h"
 #import "DBPassword.h"
 #import "MWFeedParser.h"
 #import "RegexKitLite.h"
 
-#define STATUS_URL @"http://www.dragongoserver.net/rss/status.php"
+#define STATUS_RSS_URL @"http://www.dragongoserver.net/rss/status.php"
 
 @interface DBFeedParser : NSObject <MWFeedParserDelegate> {
 @private

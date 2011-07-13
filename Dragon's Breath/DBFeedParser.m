@@ -25,7 +25,7 @@
 
 - (void)pollFeed {
     self.games = [[NSMutableArray alloc] initWithCapacity:10];
-    NSString *urlString = [NSString stringWithFormat:@"%@?%@", STATUS_URL, DRAGON_AUTH_INFO];
+    NSString *urlString = [NSString stringWithFormat:@"%@?%@", STATUS_RSS_URL, DRAGON_AUTH_INFO];
     NSURL *feedURL = [NSURL URLWithString:urlString];
     MWFeedParser *feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
     feedParser.delegate = self;
@@ -36,27 +36,30 @@
 
 
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
-    NSString *regex = @"Game\\:\\s+(\\d+)\\s+\\-\\s+"
-                       "Opponent\\:\\s+([\\s\\w\\d]+)\\s+"
-                       "\\(([^\\)]+)\\)\\s+\\-\\s+"
-                       "Color\\:\\s+(\\w)\\s+\\-\\s+"
-                       "Move\\:\\s+(\\d+)";
-    NSDictionary *rawFields = [item.summary 
-                               dictionaryByMatchingRegex:regex
-                                     withKeysAndCaptures:@"game", 1, 
-                                                         @"opponent_name", 2, 
-                                                         @"opponent_handle", 3,
-                                                         @"color", 4,
-                                                         @"move", 5,
-                                                         NULL];
-    NSMutableDictionary *gameFields = [NSMutableDictionary 
-                                       dictionaryWithDictionary:rawFields];
-    [gameFields setValue:item.title forKey:@"title"];
-    [gameFields setValue:item.link forKey:@"link"];
-    [gameFields setValue:item.date forKey:@"date"];
-    NSLog(@"Game fields: %@", gameFields);
-    
-    [self.games addObject:gameFields];
+    if (![item.title isEqualToString:@"Empty lists"]) {
+        NSString *regex = @"Game\\:\\s+(\\d+)\\s+\\-\\s+"
+                           "Opponent\\:\\s+([\\s\\w\\d]+)\\s+"
+                           "\\(([^\\)]+)\\)\\s+\\-\\s+"
+                           "Color\\:\\s+(\\w)\\s+\\-\\s+"
+                           "Move\\:\\s+(\\d+)";
+        NSDictionary *rawFields = [item.summary 
+                                   dictionaryByMatchingRegex:regex
+                                         withKeysAndCaptures:@"gameId", 1, 
+                                                             @"opponentName", 2, 
+                                                             @"opponentHandle", 3,
+                                                             @"color", 4,
+                                                             @"move", 5,
+                                                             NULL];
+        NSMutableDictionary *gameFields = [NSMutableDictionary 
+                                           dictionaryWithDictionary:rawFields];
+        [gameFields setValue:item.title forKey:@"title"];
+        [gameFields setValue:item.link forKey:@"link"];
+        [gameFields setValue:item.date forKey:@"date"];
+        NSLog(@"Game fields: %@", gameFields);
+        
+        DBGame *game = [[[DBGame alloc] initWithDictionary:gameFields] autorelease];
+        [self.games addObject:game];
+    }
 }
 
 

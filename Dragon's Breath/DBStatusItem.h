@@ -11,8 +11,10 @@
 #import "DBPassword.h"
 #import "DBFeedParser.h"
 
+#define NO_MOVES @"No Moves Waiting"
 #define RUNNING_GAMES_URL @"http://www.dragongoserver.net/show_games.php"
 #define WAITING_ROOM_URL @"http://www.dragongoserver.net/waiting_room.php"
+#define STATUS_URL @"http://www.dragongoserver.net/status.php"
 
 @interface DBStatusItem : NSObject <DBStatusFeedDelegate> {
 @private
