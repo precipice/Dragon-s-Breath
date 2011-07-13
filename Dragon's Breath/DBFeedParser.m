@@ -6,11 +6,12 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "DBStatusFeed.h"
+#import "DBFeedParser.h"
 
 
-@implementation DBStatusFeed
+@implementation DBFeedParser
 
+@synthesize delegate, games;
 
 - (id)init {
     self = [super init];
@@ -23,6 +24,7 @@
 
 
 - (void)pollFeed {
+    self.games = [[NSMutableArray alloc] initWithCapacity:10];
     NSString *urlString = [NSString stringWithFormat:@"%@?%@", STATUS_URL, DRAGON_AUTH_INFO];
     NSURL *feedURL = [NSURL URLWithString:urlString];
     MWFeedParser *feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
@@ -33,43 +35,44 @@
 }
 
 
-- (void)feedParserDidStart:(MWFeedParser *)parser {
-    NSLog(@"Parser started.");    
-}
-
-
-- (void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info {
-    NSLog(@"Parsed feed info: %@", info);
-    NSLog(@"Feed title: %@", info.title);
-    NSLog(@"Feed link: %@", info.link);
-    NSLog(@"Feed summary: %@", info.summary);    
-}
-
-
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
-    NSLog(@"Parsed feed item: %@", item);
-    NSLog(@"Item title: %@", item.title);
-    NSLog(@"Item link: %@", item.link);
-    NSLog(@"Item date: %@", item.date);
-    NSLog(@"Item updated: %@", item.updated);
-    NSLog(@"Item summary: %@", item.summary);
-    NSLog(@"Item content: %@", item.content);
-    NSLog(@"Item enclosures: %@", item.enclosures);
-    NSLog(@"Item identifier: %@", item.identifier);    
+    NSString *regex = @"Game\\:\\s+(\\d+)\\s+\\-\\s+"
+                       "Opponent\\:\\s+([\\s\\w\\d]+)\\s+"
+                       "\\(([^\\)]+)\\)\\s+\\-\\s+"
+                       "Color\\:\\s+(\\w)\\s+\\-\\s+"
+                       "Move\\:\\s+(\\d+)";
+    NSDictionary *rawFields = [item.summary 
+                               dictionaryByMatchingRegex:regex
+                                     withKeysAndCaptures:@"game", 1, 
+                                                         @"opponent_name", 2, 
+                                                         @"opponent_handle", 3,
+                                                         @"color", 4,
+                                                         @"move", 5,
+                                                         NULL];
+    NSMutableDictionary *gameFields = [NSMutableDictionary 
+                                       dictionaryWithDictionary:rawFields];
+    [gameFields setValue:item.title forKey:@"title"];
+    [gameFields setValue:item.link forKey:@"link"];
+    [gameFields setValue:item.date forKey:@"date"];
+    NSLog(@"Game fields: %@", gameFields);
+    
+    [self.games addObject:gameFields];
 }
 
 
 - (void)feedParserDidFinish:(MWFeedParser *)parser {
-    NSLog(@"Parser finished.");
+    [self.delegate feedLoaded:games];
 }
 
 
 - (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
-    NSLog(@"Parser failed: %@", error);
+    [self.delegate feedLoaded:nil];
 }
 
 
 - (void)dealloc {
+    self.delegate = nil;
+    self.games = nil;
     [super dealloc];
 }
 
