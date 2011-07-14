@@ -11,7 +11,7 @@
 
 @implementation DBGame
 
-@synthesize gameId, link, title, date, opponentName, opponentHandle, color, move;
+@synthesize gameId, link, title, date, opponentName, opponentHandle, color, move, statusItem;
 
 - (id)initWithDictionary:(NSDictionary *)gameFields {
     self = [self init];
@@ -23,7 +23,7 @@
         self.opponentName = [gameFields valueForKey:@"opponentName"];
         self.opponentHandle = [gameFields valueForKey:@"opponentHandle"];
         self.color = [gameFields valueForKey:@"color"];
-        self.move = [gameFields valueForKey:@"move"];        
+        self.move = [gameFields valueForKey:@"move"];
     }
     
     return self;

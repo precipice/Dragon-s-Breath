@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class DBStatusItem;
 
 @interface DBGame : NSObject {
 @private
@@ -19,6 +19,7 @@
     NSString *opponentHandle;
     NSString *color;
     NSString *move;
+    DBStatusItem *statusItem;
 }
 
 @property(nonatomic, copy) NSString *gameId;
@@ -29,6 +30,7 @@
 @property(nonatomic, copy) NSString *opponentHandle;
 @property(nonatomic, copy) NSString *color;
 @property(nonatomic, copy) NSString *move;
+@property(nonatomic, retain) DBStatusItem *statusItem;
 
 - (id)initWithDictionary:(NSDictionary *)gameFields;
 - (void)openGame;

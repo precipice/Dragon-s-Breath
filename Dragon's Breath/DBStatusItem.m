@@ -59,7 +59,7 @@
         insertionIndex = 3;
         [games enumerateObjectsUsingBlock:^(id gameObj, NSUInteger idx, BOOL *stop) {
             DBGame *game = (DBGame *) gameObj;
-                                         
+            game.statusItem = self;
             NSMenuItem *gameItem = [[NSMenuItem alloc] initWithTitle:[game details] 
                                                               action:@selector(openGame) 
                                                        keyEquivalent:@""];
