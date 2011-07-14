@@ -56,6 +56,7 @@
         [statusItem setToolTip:@"No moves waiting"];
 
     } else {
+        insertionIndex = 3;
         [games enumerateObjectsUsingBlock:^(id gameObj, NSUInteger idx, BOOL *stop) {
             DBGame *game = (DBGame *) gameObj;
                                          
@@ -64,7 +65,8 @@
                                                        keyEquivalent:@""];
             [gameItem setTarget:game];
             [gameItem setEnabled:YES];
-            [[statusItem menu] insertItem:gameItem atIndex:3];
+            [[statusItem menu] insertItem:gameItem atIndex:insertionIndex];
+            insertionIndex = insertionIndex + 1;
         }];
         [statusItem setImage:statusHighlightImage];
         [statusItem setToolTip:[NSString stringWithFormat:@"%d moves waiting", 

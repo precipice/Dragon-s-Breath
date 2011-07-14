@@ -25,6 +25,7 @@
     NSImage *statusHighlightImage;
     DBFeedParser *statusFeed;
     NSTimer *refreshTimer;
+    NSInteger insertionIndex;
 }
 
 - (IBAction)refresh:(id)sender;
