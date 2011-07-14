@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4923CF8013CD667E00FD5F6B /* DBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4923CF7F13CD667E00FD5F6B /* DBGame.m */; };
 		49617B8513CD252400D9010D /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 49617B7B13CD252400D9010D /* RegexKitLite.m */; };
+		4972C0B113CE630F00B8B326 /* app-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4972C0B013CE630F00B8B326 /* app-icon.icns */; };
 		49EA799813CCC92D0021CA72 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EA799713CCC92D0021CA72 /* Cocoa.framework */; };
 		49EA79A213CCC92D0021CA72 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79A013CCC92D0021CA72 /* InfoPlist.strings */; };
 		49EA79A513CCC92D0021CA72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EA79A413CCC92D0021CA72 /* main.m */; };
@@ -34,6 +35,7 @@
 		49617B7913CD252400D9010D /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		49617B7B13CD252400D9010D /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		49649E2F13CCEC140004825B /* DBPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPassword.h; sourceTree = "<group>"; };
+		4972C0B013CE630F00B8B326 /* app-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "app-icon.icns"; sourceTree = "<group>"; };
 		49EA799313CCC92D0021CA72 /* Dragon's Breath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dragon's Breath.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EA799713CCC92D0021CA72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		49EA799A13CCC92D0021CA72 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -66,7 +68,7 @@
 		49EDB07713CCE2FF00976DAB /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
 		49EDB07813CCE2FF00976DAB /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		49EDB07913CCE2FF00976DAB /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
-		49EDB0BA13CCE56800976DAB /* DBFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DBFeedParser.h; sourceTree = "<group>"; };
+		49EDB0BA13CCE56800976DAB /* DBFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBFeedParser.h; sourceTree = "<group>"; };
 		49EDB0BB13CCE56800976DAB /* DBFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFeedParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +164,7 @@
 		49EA79B413CCCC500021CA72 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				4972C0B013CE630F00B8B326 /* app-icon.icns */,
 				49EA79B513CCCC500021CA72 /* black-icon.png */,
 				49EA79B613CCCC500021CA72 /* disabled-icon.png */,
 				49EA79B713CCCC500021CA72 /* white-icon.png */,
@@ -260,6 +263,7 @@
 				49EA79B813CCCC500021CA72 /* black-icon.png in Resources */,
 				49EA79B913CCCC500021CA72 /* disabled-icon.png in Resources */,
 				49EA79BA13CCCC500021CA72 /* white-icon.png in Resources */,
+				4972C0B113CE630F00B8B326 /* app-icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,7 +3,7 @@
 //  Dragon's Breath
 //
 //  Created by Marc Hedlund on 7/12/11.
-//  Copyright 2011 Marc Hedlund. All rights reserved.
+//  Copyright 2011 Hack Arts, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -24,6 +24,7 @@
     NSImage *statusImage;
     NSImage *statusHighlightImage;
     DBFeedParser *statusFeed;
+    NSTimer *refreshTimer;
 }
 
 - (IBAction)refresh:(id)sender;

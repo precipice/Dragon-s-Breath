@@ -17,7 +17,8 @@
 
 @interface DBFeedParser : NSObject <MWFeedParserDelegate> {
 @private
-    
+    id delegate;
+    NSMutableArray *games;
 }
 
 @property(nonatomic, retain) id delegate;

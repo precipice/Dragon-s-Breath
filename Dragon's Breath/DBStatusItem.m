@@ -3,7 +3,7 @@
 //  Dragon's Breath
 //
 //  Created by Marc Hedlund on 7/12/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Hack Arts, Inc. All rights reserved.
 //
 
 #import "DBStatusItem.h"
@@ -20,11 +20,19 @@
     
     [statusItem setMenu:statusMenu];
     [statusMenu setAutoenablesItems:NO];
-    [statusItem setToolTip:@"Dragon's Breath"];
-    [statusItem setHighlightMode:YES];
+    
+    [self refresh:nil];
+    
+    refreshTimer = [NSTimer scheduledTimerWithTimeInterval:300.0
+                                                    target:self
+                                                  selector:@selector(refresh:)
+                                                  userInfo:nil
+                                                   repeats:YES];
+    [refreshTimer retain];
 }
 
 - (IBAction)refresh:(id)sender {
+    NSLog(@"Refreshing feed.");
     statusFeed = [[DBFeedParser alloc] init];
     statusFeed.delegate = self;
     [statusFeed pollFeed];
@@ -35,8 +43,9 @@
     [self clearMenu];        
 
     if (games == nil) {
-        NSLog(@"Error while downloading feed.");
         [statusItem setImage:statusImage];
+        [statusItem setToolTip:@"Error downloading feed"];
+        
     } else if ([games count] == 0) {
         NSMenuItem *noMovesItem = [[NSMenuItem alloc] initWithTitle:NO_MOVES
                                                              action:nil 
@@ -44,6 +53,8 @@
         [noMovesItem setEnabled:NO];
         [[statusItem menu] insertItem:noMovesItem atIndex:3];
         [statusItem setImage:statusImage];
+        [statusItem setToolTip:@"No moves waiting"];
+
     } else {
         [games enumerateObjectsUsingBlock:^(id gameObj, NSUInteger idx, BOOL *stop) {
             DBGame *game = (DBGame *) gameObj;
@@ -56,13 +67,21 @@
             [[statusItem menu] insertItem:gameItem atIndex:3];
         }];
         [statusItem setImage:statusHighlightImage];
+        [statusItem setToolTip:[NSString stringWithFormat:@"%d moves waiting", 
+                                                          [games count]]];
     }
 }
 
 
 - (void)clearMenu {
-    [statusMenu removeItemAtIndex:
-     [statusMenu indexOfItemWithTitle:NO_MOVES]];
+    NSArray *menuItems = [statusMenu itemArray];
+    [menuItems enumerateObjectsUsingBlock:^(id itemObj, NSUInteger idx, BOOL *stop) {
+        NSMenuItem *item = (NSMenuItem *) itemObj;
+        if ([[item title] isEqualToString:NO_MOVES] ||
+            [item action] == @selector(openGame)) {
+            [statusMenu removeItem:item];
+        }
+    }];
 }
 
 
@@ -83,6 +102,8 @@
 
 
 - (void)dealloc {
+    [refreshTimer invalidate];
+    [refreshTimer release];
     [statusImage release];
     [statusHighlightImage release];
     [statusFeed release];
