@@ -19,7 +19,7 @@
 		49EA79B813CCCC500021CA72 /* black-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79B513CCCC500021CA72 /* black-icon.png */; };
 		49EA79B913CCCC500021CA72 /* disabled-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79B613CCCC500021CA72 /* disabled-icon.png */; };
 		49EA79BA13CCCC500021CA72 /* white-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79B713CCCC500021CA72 /* white-icon.png */; };
-		49EA79BD13CCD4720021CA72 /* DBStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EA79BC13CCD4720021CA72 /* DBStatusItem.m */; };
+		49EA79BD13CCD4720021CA72 /* DBStatusMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EA79BC13CCD4720021CA72 /* DBStatusMenu.m */; };
 		49EDB0A613CCE30000976DAB /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB06C13CCE2FF00976DAB /* GTMNSString+HTML.m */; };
 		49EDB0A713CCE30000976DAB /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB06E13CCE2FF00976DAB /* MWFeedInfo.m */; };
 		49EDB0A813CCE30000976DAB /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07013CCE2FF00976DAB /* MWFeedItem.m */; };
@@ -52,8 +52,8 @@
 		49EA79B513CCCC500021CA72 /* black-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black-icon.png"; sourceTree = "<group>"; };
 		49EA79B613CCCC500021CA72 /* disabled-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disabled-icon.png"; sourceTree = "<group>"; };
 		49EA79B713CCCC500021CA72 /* white-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-icon.png"; sourceTree = "<group>"; };
-		49EA79BB13CCD4720021CA72 /* DBStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBStatusItem.h; sourceTree = "<group>"; };
-		49EA79BC13CCD4720021CA72 /* DBStatusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBStatusItem.m; sourceTree = "<group>"; };
+		49EA79BB13CCD4720021CA72 /* DBStatusMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DBStatusMenu.h; sourceTree = "<group>"; };
+		49EA79BC13CCD4720021CA72 /* DBStatusMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBStatusMenu.m; sourceTree = "<group>"; };
 		49EDB06A13CCE2FF00976DAB /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		49EDB06B13CCE2FF00976DAB /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		49EDB06C13CCE2FF00976DAB /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 				49EA79AA13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m */,
 				4923CF7E13CD667E00FD5F6B /* DBGame.h */,
 				4923CF7F13CD667E00FD5F6B /* DBGame.m */,
-				49EA79BB13CCD4720021CA72 /* DBStatusItem.h */,
-				49EA79BC13CCD4720021CA72 /* DBStatusItem.m */,
+				49EA79BB13CCD4720021CA72 /* DBStatusMenu.h */,
+				49EA79BC13CCD4720021CA72 /* DBStatusMenu.m */,
 				49EDB0BA13CCE56800976DAB /* DBFeedParser.h */,
 				49EDB0BB13CCE56800976DAB /* DBFeedParser.m */,
 				49EA79AC13CCC92D0021CA72 /* MainMenu.xib */,
@@ -276,7 +276,7 @@
 			files = (
 				49EA79A513CCC92D0021CA72 /* main.m in Sources */,
 				49EA79AB13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m in Sources */,
-				49EA79BD13CCD4720021CA72 /* DBStatusItem.m in Sources */,
+				49EA79BD13CCD4720021CA72 /* DBStatusMenu.m in Sources */,
 				49EDB0A613CCE30000976DAB /* GTMNSString+HTML.m in Sources */,
 				49EDB0A713CCE30000976DAB /* MWFeedInfo.m in Sources */,
 				49EDB0A813CCE30000976DAB /* MWFeedItem.m in Sources */,
