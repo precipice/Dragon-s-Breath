@@ -6,9 +6,9 @@
 //  Copyright 2011 Hack Arts, Inc. All rights reserved.
 //
 
-#import "DBStatusItem.h"
+#import "DBStatusMenu.h"
 
-@implementation DBStatusItem
+@implementation DBStatusMenu
 
 - (void)awakeFromNib {
     statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength] retain];

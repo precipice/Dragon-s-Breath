@@ -16,7 +16,7 @@
 #define WAITING_ROOM_URL @"http://www.dragongoserver.net/waiting_room.php"
 #define STATUS_URL @"http://www.dragongoserver.net/status.php"
 
-@interface DBStatusItem : NSObject <DBStatusFeedDelegate> {
+@interface DBStatusMenu : NSObject <DBStatusFeedDelegate> {
 @private
     IBOutlet NSMenu *statusMenu;
     
