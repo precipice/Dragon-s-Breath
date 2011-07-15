@@ -202,6 +202,12 @@
 }
 
 
+- (IBAction)showSettings:(id)sender {
+    NSLog(@"Got showSettings call.");
+    prefs = [[DBPreferencesController alloc] initWithWindowNibName:@"PreferencesWindow"];
+    [prefs showWindow:self];
+}
+
 - (void)dealloc {
     [[[NSWorkspace sharedWorkspace] 
       notificationCenter] removeObserver:self 
@@ -214,6 +220,7 @@
     [statusHighlightImage release];
     [statusFeed release];
     self.currentGames = nil;
+    [prefs release];
     
     [super dealloc];
 }

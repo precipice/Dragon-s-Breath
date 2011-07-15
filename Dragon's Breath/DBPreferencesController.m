@@ -11,8 +11,10 @@
 
 @implementation DBPreferencesController
 
-- (id)initWithWindow:(NSWindow *)window
-{
+@synthesize okayButton;
+
+
+- (id)initWithWindow:(NSWindow *)window {
     self = [super initWithWindow:window];
     if (self) {
         // Initialization code here.
@@ -21,16 +23,24 @@
     return self;
 }
 
-- (void)dealloc
-{
+
+- (void)windowDidLoad {
+    [super windowDidLoad];
+    [[self window] center];
+    [NSApp activateIgnoringOtherApps:YES];
+    //[[self window] setLevel:NSMainMenuWindowLevel];
+    //[[self window] makeKeyAndOrderFront:self];
+}
+
+
+- (IBAction)okayPressed:(id)sender {
+    [[self window] close];
+}
+
+- (void)dealloc {
+    self.okayButton = nil;
     [super dealloc];
 }
 
-- (void)windowDidLoad
-{
-    [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-}
 
 @end

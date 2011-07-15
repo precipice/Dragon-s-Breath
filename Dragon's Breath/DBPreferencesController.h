@@ -11,7 +11,11 @@
 
 @interface DBPreferencesController : NSWindowController {
 @private
-    
+    NSButton *okayButton;
 }
+
+@property(nonatomic, retain) IBOutlet NSButton *okayButton;
+
+- (IBAction)okayPressed:(id)sender;
 
 @end

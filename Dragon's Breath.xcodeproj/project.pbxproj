@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		491381D713D0C9B6001A5081 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491381D613D0C9B6001A5081 /* PreferencesWindow.xib */; };
+		491381DB13D0C9E7001A5081 /* DBPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 491381DA13D0C9E7001A5081 /* DBPreferencesController.m */; };
 		4923CF8013CD667E00FD5F6B /* DBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4923CF7F13CD667E00FD5F6B /* DBGame.m */; };
 		49617B8513CD252400D9010D /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 49617B7B13CD252400D9010D /* RegexKitLite.m */; };
 		4972C0B113CE630F00B8B326 /* app-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4972C0B013CE630F00B8B326 /* app-icon.icns */; };
@@ -30,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		491381D613D0C9B6001A5081 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
+		491381D913D0C9E7001A5081 /* DBPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPreferencesController.h; sourceTree = "<group>"; };
+		491381DA13D0C9E7001A5081 /* DBPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPreferencesController.m; sourceTree = "<group>"; };
 		4923CF7E13CD667E00FD5F6B /* DBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBGame.h; sourceTree = "<group>"; };
 		4923CF7F13CD667E00FD5F6B /* DBGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBGame.m; sourceTree = "<group>"; };
 		49617B7913CD252400D9010D /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
@@ -140,7 +145,10 @@
 				49EA79BC13CCD4720021CA72 /* DBStatusMenu.m */,
 				49EDB0BA13CCE56800976DAB /* DBFeedParser.h */,
 				49EDB0BB13CCE56800976DAB /* DBFeedParser.m */,
+				491381D913D0C9E7001A5081 /* DBPreferencesController.h */,
+				491381DA13D0C9E7001A5081 /* DBPreferencesController.m */,
 				49EA79AC13CCC92D0021CA72 /* MainMenu.xib */,
+				491381D613D0C9B6001A5081 /* PreferencesWindow.xib */,
 				49EDAFC713CCE29300976DAB /* Other Sources */,
 				49EA79B413CCCC500021CA72 /* Icons */,
 				49EA799E13CCC92D0021CA72 /* Supporting Files */,
@@ -264,6 +272,7 @@
 				49EA79B913CCCC500021CA72 /* disabled-icon.png in Resources */,
 				49EA79BA13CCCC500021CA72 /* white-icon.png in Resources */,
 				4972C0B113CE630F00B8B326 /* app-icon.icns in Resources */,
+				491381D713D0C9B6001A5081 /* PreferencesWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +295,7 @@
 				49EDB0BC13CCE56800976DAB /* DBFeedParser.m in Sources */,
 				49617B8513CD252400D9010D /* RegexKitLite.m in Sources */,
 				4923CF8013CD667E00FD5F6B /* DBGame.m in Sources */,
+				491381DB13D0C9E7001A5081 /* DBPreferencesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import "DBPassword.h"
 #import "DBFeedParser.h"
 #import "DBGame.h"
+#import "DBPassword.h"
+#import "DBPreferencesController.h"
 
 #define NO_MOVES @"No Moves Waiting"
 #define RUNNING_GAMES_URL @"http://www.dragongoserver.net/show_games.php"
@@ -27,6 +28,7 @@
     NSTimer *refreshTimer;
     NSArray *currentGames;
     NSInteger insertionIndex;
+    DBPreferencesController *prefs;
 }
 
 @property(nonatomic, retain) NSArray *currentGames;
@@ -40,5 +42,6 @@
 - (IBAction)openStatus:(id)sender;
 - (IBAction)openRunningGames:(id)sender;
 - (IBAction)openWaitingRoom:(id)sender;
+- (IBAction)showSettings:(id)sender;
 
 @end
