@@ -30,9 +30,16 @@
 }
 
 - (NSString *)details {
-    return [NSString stringWithFormat:@"%@ (%@): %@ - %@", 
-            self.opponentName, self.opponentHandle, self.color, self.move];
-
+    // So far every valid game entry I've seen has had an opponent name in it,
+    // and every bogey has had a title.
+    if (self.opponentName != nil) {
+        return [NSString stringWithFormat:@"%@ (%@): %@ - %@", 
+                self.opponentName, self.opponentHandle, self.color, self.move];
+    } else if (self.title != nil) {
+        return self.title;
+    } else {
+        return @"[Unrecognized message]";
+    }
 }
 
 
