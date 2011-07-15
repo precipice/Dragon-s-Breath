@@ -52,7 +52,7 @@
 		49EA79B513CCCC500021CA72 /* black-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black-icon.png"; sourceTree = "<group>"; };
 		49EA79B613CCCC500021CA72 /* disabled-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disabled-icon.png"; sourceTree = "<group>"; };
 		49EA79B713CCCC500021CA72 /* white-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-icon.png"; sourceTree = "<group>"; };
-		49EA79BB13CCD4720021CA72 /* DBStatusMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DBStatusMenu.h; sourceTree = "<group>"; };
+		49EA79BB13CCD4720021CA72 /* DBStatusMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBStatusMenu.h; sourceTree = "<group>"; };
 		49EA79BC13CCD4720021CA72 /* DBStatusMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBStatusMenu.m; sourceTree = "<group>"; };
 		49EDB06A13CCE2FF00976DAB /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		49EDB06B13CCE2FF00976DAB /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
