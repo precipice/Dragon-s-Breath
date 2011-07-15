@@ -3,6 +3,17 @@
 A MacOS menu bar notifier for 
 [Dragon Go Server](http://www.dragongoserver.net/).
 
+## Features ##
+
+* Shows a visible indicator when you have moves to make.
+* Keeps track of which games you've looked at, and turns off the indicator
+once you've looked at all of those awaiting moves (until a new move is needed).
+* Lets you jump directly to the game page for a waiting move.
+* Refreshes automatically every five minutes (rather than once an hour, which
+is the delay for DGS email notifications), or whenever you ask for a refresh.
+* Checks for new moves as soon as your computer wakes from sleep.
+* Provides shortcuts to other commonly-visited DGS pages.
+
 ## Status ##
 
 The app is now fully functional, other than setting your password. If you want
