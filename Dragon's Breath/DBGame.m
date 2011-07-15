@@ -11,11 +11,13 @@
 
 @implementation DBGame
 
-@synthesize gameId, link, title, date, opponentName, opponentHandle, color, move, statusItem;
+@synthesize identifier, gameId, link, title, date, opponentName, opponentHandle, 
+            color, move, read, delegate;
 
 - (id)initWithDictionary:(NSDictionary *)gameFields {
     self = [self init];
     if (self) {
+        self.identifier = [gameFields valueForKey:@"identifier"];
         self.gameId = [gameFields valueForKey:@"gameId"];
         self.link = [gameFields valueForKey:@"link"];
         self.title = [gameFields valueForKey:@"title"];
@@ -24,6 +26,7 @@
         self.opponentHandle = [gameFields valueForKey:@"opponentHandle"];
         self.color = [gameFields valueForKey:@"color"];
         self.move = [gameFields valueForKey:@"move"];
+        self.read = NO;
     }
     
     return self;
@@ -33,7 +36,11 @@
     // So far every valid game entry I've seen has had an opponent name in it,
     // and every bogey has had a title.
     if (self.opponentName != nil) {
-        return [NSString stringWithFormat:@"%@ (%@): %@ - %@", 
+        NSString *readMarker = @"";
+        if (self.read == NO) {
+            readMarker = @"\u2022 ";
+        }
+        return [NSString stringWithFormat:@"%@%@ (%@): %@ - %@", readMarker,
                 self.opponentName, self.opponentHandle, self.color, self.move];
     } else if (self.title != nil) {
         return self.title;
@@ -51,8 +58,7 @@
 
 
 - (void)openGame {
-    NSLog(@"Opening game.");
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:self.link]];
+    [self.delegate openGame:self];
 }
 
 
@@ -65,6 +71,7 @@
     self.opponentHandle = nil;
     self.color = nil;
     self.move = nil;
+    self.delegate = nil;
 
     [super dealloc];
 }

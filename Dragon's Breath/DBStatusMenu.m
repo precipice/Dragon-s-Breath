@@ -10,8 +10,11 @@
 
 @implementation DBStatusMenu
 
+@synthesize currentGames;
+
 - (void)awakeFromNib {
-    statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength] retain];
+    statusItem = [[[NSStatusBar systemStatusBar] 
+                   statusItemWithLength:NSSquareStatusItemLength] retain];
     statusImage = [NSImage imageNamed:@"disabled-icon.png"];
     statusHighlightImage = [NSImage imageNamed:@"black-icon.png"];
     
@@ -43,12 +46,24 @@
 
 - (void)receiveWakeNote:(NSNotification*)note {
     NSLog(@"Scheduling wake-up refresh 10 seconds from now.");
+    // Kill off the current refresh schedule.
+    [refreshTimer invalidate];
+    [refreshTimer release];
+    
     // Wait a bit after wake before refreshing, so we don't make wake slower.
     [NSTimer scheduledTimerWithTimeInterval:10.0
                                      target:self
                                    selector:@selector(refresh:)
                                    userInfo:nil
                                     repeats:NO];
+    
+    // Reset the refresh schedule after the wake refresh.
+    refreshTimer = [NSTimer scheduledTimerWithTimeInterval:310.0
+                                                    target:self
+                                                  selector:@selector(refresh:)
+                                                  userInfo:nil
+                                                   repeats:YES];
+    [refreshTimer retain];
 }
 
 
@@ -68,37 +83,74 @@
         [statusItem setToolTip:@"Error downloading feed"];
         
     } else if ([games count] == 0) {
+        self.currentGames = nil;
         NSMenuItem *noMovesItem = [[NSMenuItem alloc] initWithTitle:NO_MOVES
                                                              action:nil 
                                                       keyEquivalent:@""];
         [noMovesItem setEnabled:NO];
-        [[statusItem menu] insertItem:noMovesItem atIndex:3];
-        [statusItem setImage:statusImage];
-        [statusItem setToolTip:@"No moves waiting"];
+        [[statusItem menu] insertItem:noMovesItem atIndex:GAME_LIST_START_INDEX];
+        [self updateVisibleStatus];
 
     } else {
-        insertionIndex = 3;
-        [games enumerateObjectsUsingBlock:^(id gameObj, NSUInteger idx, BOOL *stop) {
+        insertionIndex = GAME_LIST_START_INDEX;
+        [games enumerateObjectsUsingBlock:^(id gameObj, 
+                                            NSUInteger idx, 
+                                            BOOL *stop) {
             DBGame *game = (DBGame *) gameObj;
-            game.statusItem = self;
-            NSMenuItem *gameItem = [[NSMenuItem alloc] initWithTitle:[game details] 
-                                                              action:@selector(openGame) 
-                                                       keyEquivalent:@""];
+            game.delegate = self;            
+            [self syncReadStatus:game];
+
+            NSMenuItem *gameItem = 
+            [[NSMenuItem alloc] initWithTitle:[game details] 
+                                       action:@selector(openGame) 
+                                keyEquivalent:@""];
             [gameItem setTarget:game];
             [gameItem setEnabled:YES];
             [[statusItem menu] insertItem:gameItem atIndex:insertionIndex];
             insertionIndex = insertionIndex + 1;
         }];
-        [statusItem setImage:statusHighlightImage];
-        [statusItem setToolTip:[NSString stringWithFormat:@"%d moves waiting", 
-                                                          [games count]]];
+        self.currentGames = games;
+        [self updateVisibleStatus];
+    }
+}
+
+
+- (void)syncReadStatus:(DBGame *)game {
+    if (self.currentGames != nil) {
+        [self.currentGames enumerateObjectsUsingBlock:^(id gameObj, 
+                                                        NSUInteger idx, 
+                                                        BOOL *stop) {
+            DBGame *currentGame = (DBGame *)gameObj;
+            if ([currentGame.identifier isEqualToString:game.identifier]) {
+                game.read = currentGame.read;
+                *stop = YES;
+            }
+        }];
+    }
+}
+
+
+- (NSInteger)unreadGamesCount {
+    if (self.currentGames != nil) {
+        NSIndexSet *unreadIndexes = 
+        [self.currentGames indexesOfObjectsPassingTest:^BOOL(id obj, 
+                                                             NSUInteger idx, 
+                                                             BOOL *stop) {
+            DBGame *game = (DBGame *)obj;
+            return game.read == NO;
+        }];
+        
+        return [unreadIndexes count];
+    } else {
+        return 0;
     }
 }
 
 
 - (void)clearMenu {
-    NSArray *menuItems = [statusMenu itemArray];
-    [menuItems enumerateObjectsUsingBlock:^(id itemObj, NSUInteger idx, BOOL *stop) {
+    [[statusMenu itemArray] enumerateObjectsUsingBlock:^(id itemObj, 
+                                                         NSUInteger idx, 
+                                                         BOOL *stop) {
         NSMenuItem *item = (NSMenuItem *) itemObj;
         if ([[item title] isEqualToString:NO_MOVES] ||
             [item action] == @selector(openGame)) {
@@ -108,13 +160,39 @@
 }
 
 
+- (void)updateVisibleStatus {
+    NSInteger unreadCount = [self unreadGamesCount];
+    if (unreadCount == 0) {
+        [statusItem setImage:statusImage];
+        [statusItem setToolTip:@"No moves waiting"];
+    } else {
+        [statusItem setImage:statusHighlightImage];
+        [statusItem setToolTip:[NSString stringWithFormat:@"%d moves waiting", 
+                                unreadCount]];
+    }
+}
+
+
 - (IBAction)openStatus:(id)sender {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:STATUS_URL]];
 }
 
 
+- (void)openGame:(DBGame *)game {
+    game.read = YES;
+    // Since the game is read now, reset the title to drop the unread marker.
+    NSMenuItem *item = [statusMenu itemAtIndex:
+                        [statusMenu indexOfItemWithTarget:game andAction:nil]];
+    [item setTitle:[game details]];
+    
+    [self updateVisibleStatus];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:game.link]];
+}
+
+
 - (IBAction)openRunningGames:(id)sender {
-    NSString *urlString = [NSString stringWithFormat:@"%@?%@", RUNNING_GAMES_URL, DRAGON_USERID];
+    NSString *urlString = 
+    [NSString stringWithFormat:@"%@?%@", RUNNING_GAMES_URL, DRAGON_USERID];
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:urlString]];
 }
 
@@ -135,6 +213,7 @@
     [statusImage release];
     [statusHighlightImage release];
     [statusFeed release];
+    self.currentGames = nil;
     
     [super dealloc];
 }

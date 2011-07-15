@@ -52,6 +52,7 @@
                                                              NULL];
         NSMutableDictionary *gameFields = [NSMutableDictionary 
                                            dictionaryWithDictionary:rawFields];
+        [gameFields setValue:item.identifier forKey:@"identifier"];
         [gameFields setValue:item.title forKey:@"title"];
         [gameFields setValue:item.link forKey:@"link"];
         [gameFields setValue:item.date forKey:@"date"];
