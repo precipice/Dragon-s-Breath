@@ -29,6 +29,7 @@
 }
 
 - (IBAction)refresh:(id)sender;
+- (void)receiveWakeNote:(NSNotification*)note;
 - (IBAction)openStatus:(id)sender;
 - (IBAction)openRunningGames:(id)sender;
 - (IBAction)openWaitingRoom:(id)sender;

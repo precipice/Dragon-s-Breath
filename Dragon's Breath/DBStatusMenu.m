@@ -29,7 +29,28 @@
                                                   userInfo:nil
                                                    repeats:YES];
     [refreshTimer retain];
+
+    // Listen for events when the computer wakes from sleep, which otherwise
+    // throws off the refresh schedule.
+    [[[NSWorkspace sharedWorkspace] 
+      notificationCenter] addObserver:self 
+                             selector:@selector(receiveWakeNote:) 
+                                 name:NSWorkspaceDidWakeNotification 
+                               object:nil];
+
 }
+
+
+- (void)receiveWakeNote:(NSNotification*)note {
+    NSLog(@"Scheduling wake-up refresh 10 seconds from now.");
+    // Wait a bit after wake before refreshing, so we don't make wake slower.
+    [NSTimer scheduledTimerWithTimeInterval:10.0
+                                     target:self
+                                   selector:@selector(refresh:)
+                                   userInfo:nil
+                                    repeats:NO];
+}
+
 
 - (IBAction)refresh:(id)sender {
     NSLog(@"Refreshing feed.");
@@ -104,6 +125,11 @@
 
 
 - (void)dealloc {
+    [[[NSWorkspace sharedWorkspace] 
+      notificationCenter] removeObserver:self 
+                                    name:NSWorkspaceDidWakeNotification 
+                                  object:nil];
+
     [refreshTimer invalidate];
     [refreshTimer release];
     [statusImage release];
