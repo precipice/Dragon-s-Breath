@@ -11,13 +11,13 @@
 
 @implementation DBPreferencesController
 
-@synthesize okayButton;
+@synthesize usernameCell, passwordCell, okayButton;
 
 
 - (id)initWithWindow:(NSWindow *)window {
     self = [super initWithWindow:window];
     if (self) {
-        // Initialization code here.
+        // initialization
     }
     
     return self;
@@ -28,12 +28,12 @@
     [super windowDidLoad];
     [[self window] center];
     [NSApp activateIgnoringOtherApps:YES];
-    //[[self window] setLevel:NSMainMenuWindowLevel];
-    //[[self window] makeKeyAndOrderFront:self];
 }
 
 
 - (IBAction)okayPressed:(id)sender {
+    NSLog(@"Got username: %@", [self.usernameCell stringValue]);
+    NSLog(@"Got password: %@", [self.passwordCell stringValue]);
     [[self window] close];
 }
 
