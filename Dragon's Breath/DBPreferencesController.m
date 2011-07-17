@@ -17,7 +17,7 @@
 - (id)initWithWindow:(NSWindow *)window {
     self = [super initWithWindow:window];
     if (self) {
-        [self setupRegisterLink];
+        //
     }
     
     return self;
@@ -45,6 +45,7 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
+    [self setupRegisterLink];
     [self loadCurrentSettings];
     [[self window] center];
     [NSApp activateIgnoringOtherApps:YES];
