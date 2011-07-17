@@ -3,7 +3,7 @@
 //  Dragon's Breath
 //
 //  Created by Marc Hedlund on 7/12/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Hack Arts, LLC. All rights reserved.
 //
 
 #import "DBFeedParser.h"

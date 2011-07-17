@@ -1,3 +1,6 @@
 [submodule "Dragon's Breath/Other Sources/MWFeedParser"]
 	path = Dragon's Breath/Other Sources/MWFeedParser
 	url = https://github.com/mwaterfall/MWFeedParser.git
+[submodule "Dragon's Breath/Other Sources/sskeychain"]
+	path = Dragon's Breath/Other Sources/sskeychain
+	url = https://github.com/samsoffes/sskeychain.git
