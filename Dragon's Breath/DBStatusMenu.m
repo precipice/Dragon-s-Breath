@@ -10,7 +10,7 @@
 
 @implementation DBStatusMenu
 
-@synthesize currentGames;
+@synthesize currentGames, username, password;
 
 - (void)awakeFromNib {
     statusItem = [[[NSStatusBar systemStatusBar] 
@@ -23,15 +23,6 @@
     
     [statusItem setMenu:statusMenu];
     [statusMenu setAutoenablesItems:NO];
-    
-    [self refresh:nil];
-    
-    refreshTimer = [NSTimer scheduledTimerWithTimeInterval:300.0
-                                                    target:self
-                                                  selector:@selector(refresh:)
-                                                  userInfo:nil
-                                                   repeats:YES];
-    [refreshTimer retain];
 
     // Listen for events when the computer wakes from sleep, which otherwise
     // throws off the refresh schedule.
@@ -41,37 +32,79 @@
                                  name:NSWorkspaceDidWakeNotification 
                                object:nil];
 
+    [self loadCredentials];
+    
+    if ([self hasValidCredentials]) {
+        [self refresh:nil];
+        [self startTimer];
+    } else {
+        [self showSettings:nil];
+    }
 }
 
 
-- (void)receiveWakeNote:(NSNotification*)note {
-    NSLog(@"Scheduling wake-up refresh 10 seconds from now.");
-    // Kill off the current refresh schedule.
-    [refreshTimer invalidate];
-    [refreshTimer release];
+- (void)loadCredentials {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];    
+    self.username = [defaults stringForKey:@"username"]; 
+}
+
+
+- (BOOL)hasValidCredentials {
+    if (self.username == nil || [self.username isEqualToString:@""]) {
+        return NO;
+    }
     
-    // Wait a bit after wake before refreshing, so we don't make wake slower.
-    [NSTimer scheduledTimerWithTimeInterval:10.0
-                                     target:self
-                                   selector:@selector(refresh:)
-                                   userInfo:nil
-                                    repeats:NO];
+//    if (self.password == nil || [self.password isEqualToString:@""]) {
+//        return NO;
+//    }
     
-    // Reset the refresh schedule after the wake refresh.
-    refreshTimer = [NSTimer scheduledTimerWithTimeInterval:310.0
+    return YES;
+}
+
+
+- (void)startTimer {
+    [self stopTimer];
+    refreshTimer = [NSTimer scheduledTimerWithTimeInterval:300.0
                                                     target:self
                                                   selector:@selector(refresh:)
                                                   userInfo:nil
                                                    repeats:YES];
-    [refreshTimer retain];
+    [refreshTimer retain];    
+}
+
+
+- (void)stopTimer {
+    if (refreshTimer != nil) {
+        [refreshTimer invalidate];
+        [refreshTimer release];        
+    }
+}
+
+
+- (void)receiveWakeNote:(NSNotification*)note {
+    if ([self hasValidCredentials]) {
+        // Kill off the current refresh schedule.
+        [self stopTimer];
+        
+        // Wait a bit after wake before refreshing, so we don't make wake slower.
+        [NSTimer scheduledTimerWithTimeInterval:10.0
+                                         target:self
+                                       selector:@selector(refresh:)
+                                       userInfo:nil
+                                        repeats:NO];
+        
+        // Reset the refresh schedule after the wake refresh.
+        [self startTimer];
+    }
 }
 
 
 - (IBAction)refresh:(id)sender {
-    NSLog(@"Refreshing feed.");
-    statusFeed = [[DBFeedParser alloc] init];
-    statusFeed.delegate = self;
-    [statusFeed pollFeed];
+    if ([self hasValidCredentials]) {
+        statusFeed = [[DBFeedParser alloc] init];
+        statusFeed.delegate = self;
+        [statusFeed pollFeed];
+    }
 }
 
 
@@ -153,8 +186,11 @@
                                                          BOOL *stop) {
         NSMenuItem *item = (NSMenuItem *) itemObj;
         if ([[item title] isEqualToString:NO_MOVES] ||
+            [[item title] isEqualToString:NOT_CONFIGURED] ||
             [item action] == @selector(openGame)) {
             [statusMenu removeItem:item];
+        } else {
+            [item setEnabled:YES];
         }
     }];
 }
@@ -174,7 +210,7 @@
 
 
 - (IBAction)openStatus:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:STATUS_URL]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:STATUS_URL]];        
 }
 
 
@@ -191,11 +227,8 @@
 
 
 - (IBAction)openRunningGames:(id)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];    
-    NSString *username = [defaults stringForKey:@"username"]; 
-    
     NSString *urlString = 
-    [NSString stringWithFormat:@"%@?user=%@", RUNNING_GAMES_URL, username];
+    [NSString stringWithFormat:@"%@?user=%@", RUNNING_GAMES_URL, self.username];
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:urlString]];
 }
 
@@ -206,24 +239,44 @@
 
 
 - (IBAction)showSettings:(id)sender {
-    NSLog(@"Got showSettings call.");
+    if (prefs != nil) {
+        [prefs release];
+    }
+
     prefs = [[DBPreferencesController alloc] initWithWindowNibName:@"PreferencesWindow"];
+    prefs.delegate = self;
     [prefs showWindow:self];
+    [prefs retain];
 }
+
+
+- (void)preferencesUpdated {
+    [self loadCredentials];
+    if ([self hasValidCredentials]) {
+        [self refresh:nil];
+        [self startTimer];
+    } else {
+        [self showSettings:nil];
+    }
+}
+
 
 - (void)dealloc {
     [[[NSWorkspace sharedWorkspace] 
       notificationCenter] removeObserver:self 
                                     name:NSWorkspaceDidWakeNotification 
                                   object:nil];
-
-    [refreshTimer invalidate];
-    [refreshTimer release];
+    [self stopTimer];
     [statusImage release];
     [statusHighlightImage release];
     [statusFeed release];
     self.currentGames = nil;
-    [prefs release];
+    self.username = nil;
+    self.password = nil;
+
+    if (prefs != nil) {
+        [prefs release];
+    }
     
     [super dealloc];
 }

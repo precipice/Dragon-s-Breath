@@ -13,8 +13,13 @@
 
 
 +(id)linkFromString:(NSString*)linkText withURL:(NSString*)href {
-    NSMutableAttributedString* link = 
-        [[NSMutableAttributedString alloc] initWithString:linkText];
+    NSDictionary *attributes = 
+    [[NSDictionary alloc] initWithObjectsAndKeys:
+     [NSFont fontWithName:@"Lucida Grande" size:12], NSFontAttributeName, nil];
+    
+    NSMutableAttributedString* link = [[NSMutableAttributedString alloc] 
+                                       initWithString:linkText
+                                       attributes:attributes];
     NSRange range = NSMakeRange(0, [link length]);
     NSURL *hrefURL = [NSURL URLWithString:href];
 

@@ -13,13 +13,15 @@
 #import "DBPassword.h"
 #import "DBPreferencesController.h"
 
+#define NOT_CONFIGURED @"Not Configured"
 #define NO_MOVES @"No Moves Waiting"
 #define RUNNING_GAMES_URL @"http://www.dragongoserver.net/show_games.php"
 #define WAITING_ROOM_URL @"http://www.dragongoserver.net/waiting_room.php"
 #define STATUS_URL @"http://www.dragongoserver.net/status.php"
 #define GAME_LIST_START_INDEX 3
 
-@interface DBStatusMenu : NSObject <DBStatusFeedDelegate, DBGameDelegate> {
+@interface DBStatusMenu : NSObject 
+<DBStatusFeedDelegate, DBGameDelegate, DBPreferencesDelegate> {
     IBOutlet NSMenu *statusMenu;
     NSStatusItem *statusItem;
     NSImage *statusImage;
@@ -29,10 +31,19 @@
     NSArray *currentGames;
     NSInteger insertionIndex;
     DBPreferencesController *prefs;
+    NSString *username;
+    NSString *password;
 }
 
 @property(nonatomic, retain) NSArray *currentGames;
+@property(nonatomic, copy) NSString *username;
+@property(nonatomic, copy) NSString *password;
 
+
+- (void)loadCredentials;
+- (BOOL)hasValidCredentials;
+- (void)startTimer;
+- (void)stopTimer;
 - (void)receiveWakeNote:(NSNotification*)note;
 - (IBAction)refresh:(id)sender;
 - (void)clearMenu;

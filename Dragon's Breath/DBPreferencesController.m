@@ -11,7 +11,8 @@
 
 @implementation DBPreferencesController
 
-@synthesize usernameCell, passwordCell, registerLink, okayButton, cancelButton;
+@synthesize usernameCell, passwordCell, registerLink, 
+            okayButton, cancelButton, delegate;
 
 
 - (id)initWithWindow:(NSWindow *)window {
@@ -25,8 +26,11 @@
 
 
 - (void)loadCurrentSettings {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];    
-    [self.usernameCell setStringValue:[defaults stringForKey:@"username"]];   
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *username = [defaults stringForKey:@"username"];
+    if (username != nil) {
+        [self.usernameCell setStringValue:username];        
+    }
 }
 
 
@@ -52,25 +56,13 @@
 }
 
 
-- (BOOL)control:(NSControl *)control textShouldBeginEditing:(NSText *)fieldEditor {
-    NSLog(@"Got register.");
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:REGISTER_URL]];
-    return NO;
-}
-
-
-- (IBAction)registerClicked:(id)sender {
-    NSLog(@"Got register clicked.");
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:REGISTER_URL]];    
-}
-
-
 - (IBAction)okayPressed:(id)sender {
     NSLog(@"Got password: %@", [self.passwordCell stringValue]);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:[self.usernameCell stringValue] forKey:@"username"];
     
     [[self window] close];
+    [self.delegate preferencesUpdated];
 }
 
 

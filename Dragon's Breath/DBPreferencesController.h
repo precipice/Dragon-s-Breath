@@ -18,6 +18,7 @@
     NSTextField *registerLink;
     NSButton *okayButton;
     NSButton *cancelButton;
+    id delegate;
 }
 
 @property(nonatomic, retain) IBOutlet NSTextFieldCell *usernameCell;
@@ -25,11 +26,17 @@
 @property(nonatomic, retain) IBOutlet NSTextField *registerLink;
 @property(nonatomic, retain) IBOutlet NSButton *okayButton;
 @property(nonatomic, retain) IBOutlet NSButton *cancelButton;
+@property(nonatomic, retain) id delegate;
 
 - (void)loadCurrentSettings;
 - (void)setupRegisterLink;
-- (IBAction)registerClicked:(id)sender;
 - (IBAction)okayPressed:(id)sender;
 - (IBAction)cancelPressed:(id)sender;
+
+@end
+
+@protocol DBPreferencesDelegate
+
+- (void)preferencesUpdated;
 
 @end
