@@ -21,7 +21,8 @@ to use it, and have a copy of XCode 4 to compile it, create DBPassword.h and
 add these lines to it:
 
     #define DRAGON_AUTH_INFO @"userid=[NICKNAME]&passwd=[PASSWORD]"
-    #define DRAGON_USERID @"uid=[USER ID NUMBER]"
+
+The "Running Games" link won't work at the moment.
 
 That file is in .gitignore; don't push it up to GitHub. With that file added,
 though, you can compile and run the app.
