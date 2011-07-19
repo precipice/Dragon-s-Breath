@@ -191,8 +191,11 @@
 
 
 - (IBAction)openRunningGames:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];    
+    NSString *username = [defaults stringForKey:@"username"]; 
+    
     NSString *urlString = 
-    [NSString stringWithFormat:@"%@?%@", RUNNING_GAMES_URL, DRAGON_USERID];
+    [NSString stringWithFormat:@"%@?user=%@", RUNNING_GAMES_URL, username];
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:urlString]];
 }
 
