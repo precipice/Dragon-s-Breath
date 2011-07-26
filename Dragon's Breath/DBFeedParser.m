@@ -28,7 +28,6 @@
                            STATUS_RSS_URL, 
                            username,
                            password];
-    NSLog(@"Headed to %@", urlString);
     NSURL *feedURL = [NSURL URLWithString:urlString];
     
     self.games = [[NSMutableArray alloc] initWithCapacity:10];

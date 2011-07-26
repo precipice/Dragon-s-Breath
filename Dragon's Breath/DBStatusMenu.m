@@ -31,6 +31,9 @@
                              selector:@selector(receiveWakeNote:) 
                                  name:NSWorkspaceDidWakeNotification 
                                object:nil];
+    
+    // Register to post Growl notifications.
+    [GrowlApplicationBridge setGrowlDelegate:self];
 
     [self loadCredentials];
     
@@ -46,9 +49,6 @@
 - (void)loadCredentials {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];    
     self.username = [defaults stringForKey:@"username"];
-    
-    NSLog(@"Trying to read from keychain: service: %@, account: %@",
-          KEYCHAIN_SERVER, self.username);
     
     NSError *error = nil;
     self.password = [HAKeychain findPasswordForService:KEYCHAIN_SERVER
@@ -154,6 +154,17 @@
             [gameItem setEnabled:YES];
             [[statusItem menu] insertItem:gameItem atIndex:insertionIndex];
             insertionIndex = insertionIndex + 1;
+            
+            if (game.read == NO) {
+                [GrowlApplicationBridge 
+                 notifyWithTitle:@"New Dragon Go Server notification" 
+                     description:[game details] 
+                notificationName:@"Game Waiting"
+                        iconData:nil
+                        priority:0
+                        isSticky:NO
+                    clickContext:[game details]];
+            }
         }];
         self.currentGames = games;
         [self updateVisibleStatus];
@@ -271,6 +282,37 @@
     } else {
         [self showSettings:nil];
     }
+}
+
+
+#pragma mark -
+#pragma mark Growl delegate methods
+
+- (NSString *)applicationNameForGrowl {
+    return @"Dragon's Breath";
+}
+
+
+- (NSDictionary *)registrationDictionaryForGrowl {
+    NSArray *allNotifications = [NSArray arrayWithObjects:@"Game Waiting", nil];
+    NSArray *defaultNotifications = [NSArray arrayWithObjects:@"Game Waiting", nil];
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+            allNotifications, GROWL_NOTIFICATIONS_ALL,
+            defaultNotifications, GROWL_NOTIFICATIONS_DEFAULT, 
+            nil];
+}
+
+
+- (void) growlNotificationWasClicked:(id)clickContext {
+    NSString *details = (NSString *)clickContext;
+    NSUInteger index = [currentGames indexOfObjectPassingTest:^BOOL(id obj, 
+                                                                    NSUInteger idx, 
+                                                                    BOOL *stop) {
+        DBGame *game = (DBGame *)obj;
+        return [[game details] isEqualToString:details];
+    }];
+    DBGame *game = (DBGame *)[currentGames objectAtIndex:index];        
+    [self openGame:game];
 }
 
 

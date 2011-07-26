@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import <Growl/GrowlApplicationBridge.h>
+
 #import "DBFeedParser.h"
 #import "DBGame.h"
 #import "DBPassword.h"
@@ -21,7 +23,8 @@
 #define GAME_LIST_START_INDEX 3
 
 @interface DBStatusMenu : NSObject 
-<DBStatusFeedDelegate, DBGameDelegate, DBPreferencesDelegate> {
+<DBStatusFeedDelegate, DBGameDelegate, DBPreferencesDelegate, 
+GrowlApplicationBridgeDelegate> {
     IBOutlet NSMenu *statusMenu;
     NSStatusItem *statusItem;
     NSImage *statusImage;
