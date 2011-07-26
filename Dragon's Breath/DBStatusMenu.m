@@ -45,7 +45,20 @@
 
 - (void)loadCredentials {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];    
-    self.username = [defaults stringForKey:@"username"]; 
+    self.username = [defaults stringForKey:@"username"];
+    
+    NSLog(@"Trying to read from keychain: service: %@, account: %@",
+          KEYCHAIN_SERVER, self.username);
+    
+    NSError *error = nil;
+    self.password = [HAKeychain findPasswordForService:KEYCHAIN_SERVER
+                                               account:self.username
+                                              keychain:NULL
+                                                 error:&error];
+    if (self.password == nil && error != nil) {
+        NSAlert *alert = [NSAlert alertWithError:error];
+        [alert runModal];
+    }
 }
 
 
@@ -54,9 +67,9 @@
         return NO;
     }
     
-//    if (self.password == nil || [self.password isEqualToString:@""]) {
-//        return NO;
-//    }
+    if (self.password == nil || [self.password isEqualToString:@""]) {
+        return NO;
+    }
     
     return YES;
 }
@@ -103,7 +116,7 @@
     if ([self hasValidCredentials]) {
         statusFeed = [[DBFeedParser alloc] init];
         statusFeed.delegate = self;
-        [statusFeed pollFeed];
+        [statusFeed pollFeed:self.username withPassword:self.password];
     }
 }
 

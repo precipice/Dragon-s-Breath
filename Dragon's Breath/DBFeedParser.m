@@ -23,10 +23,15 @@
 }
 
 
-- (void)pollFeed {
-    self.games = [[NSMutableArray alloc] initWithCapacity:10];
-    NSString *urlString = [NSString stringWithFormat:@"%@?%@", STATUS_RSS_URL, DRAGON_AUTH_INFO];
+- (void)pollFeed:(NSString *)username withPassword:(NSString *)password {
+    NSString *urlString = [NSString stringWithFormat:@"%@?userid=%@&passwd=%@", 
+                           STATUS_RSS_URL, 
+                           username,
+                           password];
+    NSLog(@"Headed to %@", urlString);
     NSURL *feedURL = [NSURL URLWithString:urlString];
+    
+    self.games = [[NSMutableArray alloc] initWithCapacity:10];
     MWFeedParser *feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
     feedParser.delegate = self;
     feedParser.feedParseType = ParseTypeFull;

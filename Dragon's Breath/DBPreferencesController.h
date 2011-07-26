@@ -8,7 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NSAttributedString+Link.h"
+#import <HAKeychain/HAKeychain.h>
 
+#define KEYCHAIN_SERVER @"www.dragongoserver.net"
 #define REGISTER_URL @"http://www.dragongoserver.net/register.php"
 
 @interface DBPreferencesController : NSWindowController <NSTextFieldDelegate> {
@@ -32,6 +34,7 @@
 - (void)setupRegisterLink;
 - (IBAction)okayPressed:(id)sender;
 - (IBAction)cancelPressed:(id)sender;
+- (void)reportKeychainError:(NSError *)error;
 
 @end
 

@@ -24,7 +24,7 @@
 @property(nonatomic, retain) id delegate;
 @property(nonatomic, retain) NSMutableArray *games;
 
--(void) pollFeed;
+-(void) pollFeed:(NSString *)username withPassword:(NSString *)password;
 
 @end
 

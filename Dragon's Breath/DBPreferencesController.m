@@ -57,17 +57,48 @@
 
 
 - (IBAction)okayPressed:(id)sender {
-    NSLog(@"Got password: %@", [self.passwordCell stringValue]);
+    NSString *username = [self.usernameCell stringValue];
+    NSString *password = [self.passwordCell stringValue];
+    
+    // Save the username.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[self.usernameCell stringValue] forKey:@"username"];
+    [defaults setObject:username forKey:@"username"];
+
+    NSLog(@"Trying to save to keychain: account: %@, service: %@, password: %@",
+          username, KEYCHAIN_SERVER, password);
+    
+    // Save the password.
+    NSError *error = nil;
+    BOOL success = [HAKeychain createPassword:password
+                                   forService:KEYCHAIN_SERVER
+                                      account:username
+                                     keychain:NULL
+                                        error:&error];
+    
+    if (success) {
+        [self.delegate preferencesUpdated];
+    } else {    
+        [self reportKeychainError:error];
+    }
     
     [[self window] close];
-    [self.delegate preferencesUpdated];
 }
 
 
 - (IBAction)cancelPressed:(id)sender {
     [[self window] close];
+}
+
+
+- (void)reportKeychainError:(NSError *)error {
+    NSAlert *alert = 
+    [NSAlert alertWithMessageText:@"Password save failed"
+                    defaultButton:@"OK" 
+                  alternateButton:nil
+                      otherButton:nil 
+        informativeTextWithFormat:@"There was a problem saving the password: "
+                                   "%@", [error localizedDescription]];
+    [alert runModal];
 }
 
 

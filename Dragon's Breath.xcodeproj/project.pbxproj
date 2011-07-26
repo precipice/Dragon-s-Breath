@@ -13,6 +13,8 @@
 		49617B8513CD252400D9010D /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 49617B7B13CD252400D9010D /* RegexKitLite.m */; };
 		49652B6413D338C1008BD2D4 /* NSAttributedString+Link.m in Sources */ = {isa = PBXBuildFile; fileRef = 49652B6313D338C1008BD2D4 /* NSAttributedString+Link.m */; };
 		4972C0B113CE630F00B8B326 /* app-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4972C0B013CE630F00B8B326 /* app-icon.icns */; };
+		49E8E97613DE8C2F0095B2BC /* HAKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E8E97513DE8C2F0095B2BC /* HAKeychain.framework */; };
+		49E8E97713DE8C350095B2BC /* HAKeychain.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49E8E97513DE8C2F0095B2BC /* HAKeychain.framework */; };
 		49EA799813CCC92D0021CA72 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EA799713CCC92D0021CA72 /* Cocoa.framework */; };
 		49EA79A213CCC92D0021CA72 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49EA79A013CCC92D0021CA72 /* InfoPlist.strings */; };
 		49EA79A513CCC92D0021CA72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EA79A413CCC92D0021CA72 /* main.m */; };
@@ -32,6 +34,19 @@
 		49EDB0BC13CCE56800976DAB /* DBFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB0BB13CCE56800976DAB /* DBFeedParser.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		490096FF13DE82CB000EAFFD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				49E8E97713DE8C350095B2BC /* HAKeychain.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		491381D613D0C9B6001A5081 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		491381D913D0C9E7001A5081 /* DBPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPreferencesController.h; sourceTree = "<group>"; };
@@ -44,6 +59,7 @@
 		49652B6213D338C1008BD2D4 /* NSAttributedString+Link.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Link.h"; sourceTree = "<group>"; };
 		49652B6313D338C1008BD2D4 /* NSAttributedString+Link.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Link.m"; sourceTree = "<group>"; };
 		4972C0B013CE630F00B8B326 /* app-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "app-icon.icns"; sourceTree = "<group>"; };
+		49E8E97513DE8C2F0095B2BC /* HAKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HAKeychain.framework; sourceTree = "<group>"; };
 		49EA799313CCC92D0021CA72 /* Dragon's Breath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dragon's Breath.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EA799713CCC92D0021CA72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		49EA799A13CCC92D0021CA72 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -86,6 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49EA799813CCC92D0021CA72 /* Cocoa.framework in Frameworks */,
+				49E8E97613DE8C2F0095B2BC /* HAKeychain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +138,7 @@
 		49EA799613CCC92D0021CA72 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49E8E97513DE8C2F0095B2BC /* HAKeychain.framework */,
 				49EA799713CCC92D0021CA72 /* Cocoa.framework */,
 				49EA799913CCC92D0021CA72 /* Other Frameworks */,
 			);
@@ -230,6 +248,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49EA79B113CCC92D0021CA72 /* Build configuration list for PBXNativeTarget "Dragon's Breath" */;
 			buildPhases = (
+				490096FF13DE82CB000EAFFD /* CopyFiles */,
 				49EA798F13CCC92D0021CA72 /* Sources */,
 				49EA799013CCC92D0021CA72 /* Frameworks */,
 				49EA799113CCC92D0021CA72 /* Resources */,
@@ -372,11 +391,16 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dragon's Breath/Dragon's Breath-Prefix.pch";
 				INFOPLIST_FILE = "Dragon's Breath/Dragon's Breath-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -390,10 +414,15 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dragon's Breath/Dragon's Breath-Prefix.pch";
 				INFOPLIST_FILE = "Dragon's Breath/Dragon's Breath-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
