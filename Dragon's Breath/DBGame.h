@@ -37,7 +37,7 @@
 
 - (id)initWithDictionary:(NSDictionary *)gameFields;
 - (void)openGame;
-- (NSString *)details;
+- (NSString *)detailsShowingReadState:(BOOL)showReadState;
 
 @end
 

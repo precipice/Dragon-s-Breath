@@ -147,7 +147,7 @@
             [self syncReadStatus:game];
 
             NSMenuItem *gameItem = 
-            [[NSMenuItem alloc] initWithTitle:[game details] 
+            [[NSMenuItem alloc] initWithTitle:[game detailsShowingReadState:YES] 
                                        action:@selector(openGame) 
                                 keyEquivalent:@""];
             [gameItem setTarget:game];
@@ -157,13 +157,13 @@
             
             if (game.read == NO) {
                 [GrowlApplicationBridge 
-                 notifyWithTitle:@"New Dragon Go Server notification" 
-                     description:[game details] 
+                 notifyWithTitle:@"Dragon Go Server" 
+                     description:[game detailsShowingReadState:NO] 
                 notificationName:@"Game Waiting"
                         iconData:nil
                         priority:0
                         isSticky:NO
-                    clickContext:[game details]];
+                    clickContext:[game detailsShowingReadState:YES]];
             }
         }];
         self.currentGames = games;
@@ -243,7 +243,7 @@
     // Since the game is read now, reset the title to drop the unread marker.
     NSMenuItem *item = [statusMenu itemAtIndex:
                         [statusMenu indexOfItemWithTarget:game andAction:nil]];
-    [item setTitle:[game details]];
+    [item setTitle:[game detailsShowingReadState:YES]];
     
     [self updateVisibleStatus];
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:game.link]];
@@ -309,7 +309,7 @@
                                                                     NSUInteger idx, 
                                                                     BOOL *stop) {
         DBGame *game = (DBGame *)obj;
-        return [[game details] isEqualToString:details];
+        return [[game detailsShowingReadState:YES] isEqualToString:details];
     }];
     DBGame *game = (DBGame *)[currentGames objectAtIndex:index];        
     [self openGame:game];
