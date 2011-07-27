@@ -58,17 +58,11 @@
 - (void)loadPreferences {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     growlEnabled = [defaults boolForKey:@"growlEnabled"];    
-    self.username = [defaults stringForKey:@"username"];
-    
-    NSError *error = nil;
+    self.username = [defaults stringForKey:@"username"];    
     self.password = [HAKeychain findPasswordForService:KEYCHAIN_SERVER
                                                account:self.username
                                               keychain:NULL
-                                                 error:&error];
-    if (self.password == nil && error != nil) {
-        NSAlert *alert = [NSAlert alertWithError:error];
-        [alert runModal];
-    }
+                                                 error:nil];
 }
 
 
