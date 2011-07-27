@@ -26,6 +26,7 @@
 <DBStatusFeedDelegate, DBGameDelegate, DBPreferencesDelegate, 
 GrowlApplicationBridgeDelegate> {
     IBOutlet NSMenu *statusMenu;
+    IBOutlet NSMenu *editMenu;
     NSStatusItem *statusItem;
     NSImage *statusImage;
     NSImage *statusHighlightImage;

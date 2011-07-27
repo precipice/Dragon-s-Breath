@@ -31,6 +31,7 @@
     
     [statusItem setMenu:statusMenu];
     [statusMenu setAutoenablesItems:NO];
+    [NSApp setMainMenu:editMenu];
 
     // Listen for events when the computer wakes from sleep, which otherwise
     // throws off the refresh schedule.
