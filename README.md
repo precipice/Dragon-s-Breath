@@ -1,14 +1,15 @@
 # Dragon's Breath #
 
-A MacOS menu bar notifier for 
-[Dragon Go Server](http://www.dragongoserver.net/).
+A MacOS X menu bar notifier for 
+[Dragon Go Server](http://www.dragongoserver.net/) messages.
 
 ## Features ##
 
+* Shows a menu bar indicator when you have moves to make (similar to the
+  Twitter app's blue bird).
+* Supports Growl notifications for new messages.
 * Refreshes every five minutes (rather than once an hour, which is the delay
   for DGS email notifications), or whenever you ask for a refresh.
-* Shows a visible indicator when you have moves to make.
-* Supports Growl notifications for new waiting moves and messages.
 * Keeps track of which games you've looked at, and turns off the indicator
   once you've looked at all of those awaiting moves (until a new move is
   needed).
