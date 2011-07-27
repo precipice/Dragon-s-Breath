@@ -32,15 +32,11 @@
     return self;
 }
 
-- (NSString *)detailsShowingReadState:(BOOL)showReadState {
+- (NSString *)details {
     // So far every valid game entry I've seen has had an opponent name in it,
     // and every bogey has had a title.
     if (self.opponentName != nil) {
-        NSString *readMarker = @"";
-        if (showReadState == YES && self.read == NO) {
-            readMarker = @"\u2022 ";
-        }
-        return [NSString stringWithFormat:@"%@%@ (%@): %@ - %@", readMarker,
+        return [NSString stringWithFormat:@"%@ (%@): %@ - %@",
                 self.opponentName, self.opponentHandle, self.color, self.move];
     } else if (self.title != nil) {
         return self.title;

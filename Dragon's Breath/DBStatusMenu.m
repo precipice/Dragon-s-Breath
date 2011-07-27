@@ -8,6 +8,14 @@
 
 #import "DBStatusMenu.h"
 
+@interface DBStatusMenu (PrivateMethods) 
+
+- (BOOL)gameInCurrentGames:(DBGame *)game;
+- (NSString *)detailsWithReadState:(DBGame *)game;
+
+@end
+
+
 @implementation DBStatusMenu
 
 @synthesize currentGames, username, password;
@@ -35,7 +43,7 @@
     // Register to post Growl notifications.
     [GrowlApplicationBridge setGrowlDelegate:self];
 
-    [self loadCredentials];
+    [self loadPreferences];
     
     if ([self hasValidCredentials]) {
         [self refresh:nil];
@@ -46,8 +54,10 @@
 }
 
 
-- (void)loadCredentials {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];    
+- (void)loadPreferences {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    growlEnabled = [defaults boolForKey:@"growlEnabled"];
+    
     self.username = [defaults stringForKey:@"username"];
     
     NSError *error = nil;
@@ -147,7 +157,7 @@
             [self syncReadStatus:game];
 
             NSMenuItem *gameItem = 
-            [[NSMenuItem alloc] initWithTitle:[game detailsShowingReadState:YES] 
+            [[NSMenuItem alloc] initWithTitle:[self detailsWithReadState:game] 
                                        action:@selector(openGame) 
                                 keyEquivalent:@""];
             [gameItem setTarget:game];
@@ -155,15 +165,17 @@
             [[statusItem menu] insertItem:gameItem atIndex:insertionIndex];
             insertionIndex = insertionIndex + 1;
             
-            if (game.read == NO) {
+            if (growlEnabled && game.read == NO &&
+                ![self gameInCurrentGames:game]) {
+                
                 [GrowlApplicationBridge 
                  notifyWithTitle:@"Dragon Go Server" 
-                     description:[game detailsShowingReadState:NO] 
+                     description:[game details] 
                 notificationName:@"Game Waiting"
                         iconData:nil
                         priority:0
                         isSticky:NO
-                    clickContext:[game detailsShowingReadState:YES]];
+                    clickContext:[self detailsWithReadState:game]];
             }
         }];
         self.currentGames = games;
@@ -184,6 +196,23 @@
             }
         }];
     }
+}
+
+- (BOOL)gameInCurrentGames:(DBGame *)game {
+    NSUInteger foundIndex = NSNotFound;
+    
+    if (self.currentGames != nil) {
+        foundIndex = 
+        [self.currentGames indexOfObjectPassingTest:^(id gameObj, 
+                                                      NSUInteger idx, 
+                                                      BOOL *stop) {
+            DBGame *currentGame = (DBGame *)gameObj;
+            return [currentGame.identifier isEqualToString:game.identifier];
+        }];
+        
+    }
+    
+    return foundIndex != NSNotFound;
 }
 
 
@@ -243,7 +272,7 @@
     // Since the game is read now, reset the title to drop the unread marker.
     NSMenuItem *item = [statusMenu itemAtIndex:
                         [statusMenu indexOfItemWithTarget:game andAction:nil]];
-    [item setTitle:[game detailsShowingReadState:YES]];
+    [item setTitle:[self detailsWithReadState:game]];
     
     [self updateVisibleStatus];
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:game.link]];
@@ -275,13 +304,22 @@
 
 
 - (void)preferencesUpdated {
-    [self loadCredentials];
+    [self loadPreferences];
     if ([self hasValidCredentials]) {
         [self refresh:nil];
         [self startTimer];
     } else {
         [self showSettings:nil];
     }
+}
+
+
+- (NSString *)detailsWithReadState:(DBGame *)game {
+    NSString *readMarker = @"";
+    if (game.read == NO) {
+        readMarker = @"\u2022 ";
+    }
+    return [NSString stringWithFormat:@"%@%@", readMarker, [game details]];
 }
 
 
@@ -309,7 +347,7 @@
                                                                     NSUInteger idx, 
                                                                     BOOL *stop) {
         DBGame *game = (DBGame *)obj;
-        return [[game detailsShowingReadState:YES] isEqualToString:details];
+        return [[self detailsWithReadState:game] isEqualToString:details];
     }];
     DBGame *game = (DBGame *)[currentGames objectAtIndex:index];        
     [self openGame:game];

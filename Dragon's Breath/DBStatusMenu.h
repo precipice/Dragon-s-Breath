@@ -36,6 +36,7 @@ GrowlApplicationBridgeDelegate> {
     DBPreferencesController *prefs;
     NSString *username;
     NSString *password;
+    BOOL growlEnabled;
 }
 
 @property(nonatomic, retain) NSArray *currentGames;
@@ -43,7 +44,7 @@ GrowlApplicationBridgeDelegate> {
 @property(nonatomic, copy) NSString *password;
 
 
-- (void)loadCredentials;
+- (void)loadPreferences;
 - (BOOL)hasValidCredentials;
 - (void)startTimer;
 - (void)stopTimer;

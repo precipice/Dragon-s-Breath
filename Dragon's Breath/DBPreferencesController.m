@@ -11,7 +11,7 @@
 
 @implementation DBPreferencesController
 
-@synthesize usernameCell, passwordCell, registerLink, 
+@synthesize registerLink, usernameCell, passwordCell, growlPreference,
             okayButton, cancelButton, delegate;
 
 
@@ -59,9 +59,13 @@
 - (IBAction)okayPressed:(id)sender {
     NSString *username = [self.usernameCell stringValue];
     NSString *password = [self.passwordCell stringValue];
+    BOOL growlEnabled  = [self.growlPreference state] == NSOnState;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    // Save the Growl preference.
+    [defaults setBool:growlEnabled forKey:@"growlEnabled"];
     
     // Save the username.
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:username forKey:@"username"];
 
     NSLog(@"Trying to save to keychain: account: %@, service: %@, password: %@",
@@ -74,13 +78,13 @@
                                       account:username
                                      keychain:NULL
                                         error:&error];
-    
+        
     if (success) {
         [self.delegate preferencesUpdated];
     } else {    
         [self reportKeychainError:error];
     }
-    
+
     [[self window] close];
 }
 
