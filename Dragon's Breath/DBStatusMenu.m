@@ -57,8 +57,7 @@
 
 - (void)loadPreferences {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    growlEnabled = [defaults boolForKey:@"growlEnabled"];
-    
+    growlEnabled = [defaults boolForKey:@"growlEnabled"];    
     self.username = [defaults stringForKey:@"username"];
     
     NSError *error = nil;

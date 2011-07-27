@@ -27,9 +27,27 @@
 
 - (void)loadCurrentSettings {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL growlEnabled = [defaults boolForKey:@"growlEnabled"];
+
+    if (growlEnabled) {
+        [self.growlPreference setState:NSOnState];
+    } else {
+        [self.growlPreference setState:NSOffState];
+    }
+    
     NSString *username = [defaults stringForKey:@"username"];
+    
     if (username != nil) {
         [self.usernameCell setStringValue:username];        
+    }
+
+    NSString *password = [HAKeychain findPasswordForService:KEYCHAIN_SERVER
+                                                    account:username
+                                                   keychain:NULL
+                                                      error:nil];
+
+    if (password != nil) {
+        [self.passwordCell setStringValue:password];        
     }
 }
 
@@ -67,9 +85,6 @@
     
     // Save the username.
     [defaults setObject:username forKey:@"username"];
-
-    NSLog(@"Trying to save to keychain: account: %@, service: %@, password: %@",
-          username, KEYCHAIN_SERVER, password);
     
     // Save the password.
     NSError *error = nil;
@@ -79,12 +94,20 @@
                                      keychain:NULL
                                         error:&error];
         
-    if (success) {
-        [self.delegate preferencesUpdated];
-    } else {    
+    if (success == NO && [error code] == errSecDuplicateItem) {
+        // Trying updating instead of creating the password.
+        success = [HAKeychain updatePassword:password 
+                                  forService:KEYCHAIN_SERVER 
+                                     account:username 
+                                    keychain:NULL 
+                                       error:&error];
+    }
+    
+    if (success == NO) {
         [self reportKeychainError:error];
     }
 
+    [self.delegate preferencesUpdated];
     [[self window] close];
 }
 
