@@ -11,6 +11,7 @@
 #import "DBGame.h"
 #import "DBPassword.h"
 #import "MWFeedParser.h"
+#import "NSString+HTML.h"
 #import "RegexKitLite.h"
 
 #define STATUS_RSS_URL @"http://www.dragongoserver.net/rss/status.php"

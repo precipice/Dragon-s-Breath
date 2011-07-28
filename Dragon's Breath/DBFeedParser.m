@@ -46,7 +46,7 @@
                            "\\(([^\\)]+)\\)\\s+\\-\\s+"
                            "Color\\:\\s+(\\w)\\s+\\-\\s+"
                            "Move\\:\\s+(\\d+)";
-        NSDictionary *rawFields = [item.summary 
+        NSDictionary *rawFields = [[item.summary stringByConvertingHTMLToPlainText]
                                    dictionaryByMatchingRegex:regex
                                          withKeysAndCaptures:@"gameId", 1, 
                                                              @"opponentName", 2, 
@@ -56,8 +56,9 @@
                                                              NULL];
         NSMutableDictionary *gameFields = [NSMutableDictionary 
                                            dictionaryWithDictionary:rawFields];
+        [gameFields setValue:[item.title stringByConvertingHTMLToPlainText] 
+                      forKey:@"title"];
         [gameFields setValue:item.identifier forKey:@"identifier"];
-        [gameFields setValue:item.title forKey:@"title"];
         [gameFields setValue:item.link forKey:@"link"];
         [gameFields setValue:item.date forKey:@"date"];
         NSLog(@"Game fields: %@", gameFields);
