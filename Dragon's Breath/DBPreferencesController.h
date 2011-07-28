@@ -7,8 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NSAttributedString+Link.h"
 #import <HAKeychain/HAKeychain.h>
+
+#import "LaunchAtLoginController.h"
+
+#import "NSAttributedString+Link.h"
+
 
 #define KEYCHAIN_SERVER @"www.dragongoserver.net"
 #define REGISTER_URL @"http://www.dragongoserver.net/register.php"
@@ -19,6 +23,7 @@
     NSTextFieldCell *usernameCell;
     NSSecureTextFieldCell *passwordCell;
     NSButton *growlPreference;
+    NSButton *launchAtLoginPreference;
     NSButton *okayButton;
     NSButton *cancelButton;
     id delegate;
@@ -28,6 +33,7 @@
 @property(nonatomic, retain) IBOutlet NSTextFieldCell *usernameCell;
 @property(nonatomic, retain) IBOutlet NSSecureTextFieldCell *passwordCell;
 @property(nonatomic, retain) IBOutlet NSButton *growlPreference;
+@property(nonatomic, retain) IBOutlet NSButton *launchAtLoginPreference;
 @property(nonatomic, retain) IBOutlet NSButton *okayButton;
 @property(nonatomic, retain) IBOutlet NSButton *cancelButton;
 @property(nonatomic, retain) id delegate;

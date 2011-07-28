@@ -15,6 +15,8 @@
 		4972C0B113CE630F00B8B326 /* app-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4972C0B013CE630F00B8B326 /* app-icon.icns */; };
 		4981736B13DEA65600AE3DCB /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4981736A13DEA65600AE3DCB /* Growl.framework */; };
 		4981736D13DEA66000AE3DCB /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4981736A13DEA65600AE3DCB /* Growl.framework */; };
+		49B4343013E1C876000AF636 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B4340B13E1C876000AF636 /* LaunchAtLoginController.m */; };
+		49B4343113E1C876000AF636 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 49B4340C13E1C876000AF636 /* README.md */; };
 		49E8E97613DE8C2F0095B2BC /* HAKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E8E97513DE8C2F0095B2BC /* HAKeychain.framework */; };
 		49E8E97713DE8C350095B2BC /* HAKeychain.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49E8E97513DE8C2F0095B2BC /* HAKeychain.framework */; };
 		49EA799813CCC92D0021CA72 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EA799713CCC92D0021CA72 /* Cocoa.framework */; };
@@ -63,6 +65,9 @@
 		49652B6313D338C1008BD2D4 /* NSAttributedString+Link.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Link.m"; sourceTree = "<group>"; };
 		4972C0B013CE630F00B8B326 /* app-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "app-icon.icns"; sourceTree = "<group>"; };
 		4981736A13DEA65600AE3DCB /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
+		49B4340A13E1C876000AF636 /* LaunchAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAtLoginController.h; sourceTree = "<group>"; };
+		49B4340B13E1C876000AF636 /* LaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAtLoginController.m; sourceTree = "<group>"; };
+		49B4340C13E1C876000AF636 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		49E8E97513DE8C2F0095B2BC /* HAKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HAKeychain.framework; sourceTree = "<group>"; };
 		49EA799313CCC92D0021CA72 /* Dragon's Breath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dragon's Breath.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EA799713CCC92D0021CA72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -121,6 +126,16 @@
 				49617B7B13CD252400D9010D /* RegexKitLite.m */,
 			);
 			path = "RegexKitLite-4.0";
+			sourceTree = "<group>";
+		};
+		49B433C913E1C876000AF636 /* LaunchAtLoginController */ = {
+			isa = PBXGroup;
+			children = (
+				49B4340A13E1C876000AF636 /* LaunchAtLoginController.h */,
+				49B4340B13E1C876000AF636 /* LaunchAtLoginController.m */,
+				49B4340C13E1C876000AF636 /* README.md */,
+			);
+			path = LaunchAtLoginController;
 			sourceTree = "<group>";
 		};
 		49EA798813CCC92C0021CA72 = {
@@ -212,6 +227,7 @@
 		49EDAFC713CCE29300976DAB /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				49B433C913E1C876000AF636 /* LaunchAtLoginController */,
 				49617B6E13CD252400D9010D /* RegexKitLite-4.0 */,
 				49EDB04113CCE2FF00976DAB /* MWFeedParser */,
 			);
@@ -303,6 +319,7 @@
 				49EA79BA13CCCC500021CA72 /* white-icon.png in Resources */,
 				4972C0B113CE630F00B8B326 /* app-icon.icns in Resources */,
 				491381D713D0C9B6001A5081 /* PreferencesWindow.xib in Resources */,
+				49B4343113E1C876000AF636 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +344,7 @@
 				4923CF8013CD667E00FD5F6B /* DBGame.m in Sources */,
 				491381DB13D0C9E7001A5081 /* DBPreferencesController.m in Sources */,
 				49652B6413D338C1008BD2D4 /* NSAttributedString+Link.m in Sources */,
+				49B4343013E1C876000AF636 /* LaunchAtLoginController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

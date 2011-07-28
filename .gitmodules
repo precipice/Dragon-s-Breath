@@ -1,3 +1,6 @@
 [submodule "Dragon's Breath/Other Sources/MWFeedParser"]
 	path = Dragon's Breath/Other Sources/MWFeedParser
 	url = https://github.com/mwaterfall/MWFeedParser.git
+[submodule "Dragon's Breath/Other Sources/LaunchAtLoginController"]
+	path = Dragon's Breath/Other Sources/LaunchAtLoginController
+	url = https://github.com/Mozketo/LaunchAtLoginController.git

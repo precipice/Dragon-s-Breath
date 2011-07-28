@@ -12,7 +12,7 @@
 @implementation DBPreferencesController
 
 @synthesize registerLink, usernameCell, passwordCell, growlPreference,
-            okayButton, cancelButton, delegate;
+            launchAtLoginPreference, okayButton, cancelButton, delegate;
 
 
 - (id)initWithWindow:(NSWindow *)window {
@@ -26,15 +26,7 @@
 
 
 - (void)loadCurrentSettings {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL growlEnabled = [defaults boolForKey:@"growlEnabled"];
-
-    if (growlEnabled) {
-        [self.growlPreference setState:NSOnState];
-    } else {
-        [self.growlPreference setState:NSOffState];
-    }
-    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];    
     NSString *username = [defaults stringForKey:@"username"];
     
     if (username != nil) {
@@ -48,6 +40,25 @@
 
     if (password != nil) {
         [self.passwordCell setStringValue:password];        
+    }
+    
+    BOOL growlEnabled = [defaults boolForKey:@"growlEnabled"];
+    
+    if (growlEnabled) {
+        [self.growlPreference setState:NSOnState];
+    } else {
+        [self.growlPreference setState:NSOffState];
+    }
+
+    LaunchAtLoginController *launchController = 
+        [[LaunchAtLoginController alloc] init];
+    BOOL launchAtLoginEnabled = [launchController launchAtLogin];
+    [launchController release];
+    
+    if (launchAtLoginEnabled) {
+        [self.launchAtLoginPreference setState:NSOnState];
+    } else {
+        [self.launchAtLoginPreference setState:NSOffState];
     }
 }
 
@@ -78,10 +89,17 @@
     NSString *username = [self.usernameCell stringValue];
     NSString *password = [self.passwordCell stringValue];
     BOOL growlEnabled  = [self.growlPreference state] == NSOnState;
+    BOOL launchOnLoginEnabled = [self.launchAtLoginPreference state] == NSOnState;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // Save the Growl preference.
     [defaults setBool:growlEnabled forKey:@"growlEnabled"];
+    
+    // Save the Launch-on-Login preference.
+    LaunchAtLoginController *launchController = 
+        [[LaunchAtLoginController alloc] init];
+	[launchController setLaunchAtLogin:launchOnLoginEnabled];
+	[launchController release];
     
     // Save the username.
     [defaults setObject:username forKey:@"username"];
