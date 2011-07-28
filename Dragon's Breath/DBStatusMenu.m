@@ -250,7 +250,7 @@
         [statusItem setToolTip:@"No moves waiting"];
     } else {
         [statusItem setImage:statusHighlightImage];
-        [statusItem setToolTip:[NSString stringWithFormat:@"%d move%s waiting", 
+        [statusItem setToolTip:[NSString stringWithFormat:@"%d move%@ waiting", 
                                 unreadCount,
                                 (unreadCount == 1 ? @"" : @"s")]];
     }
