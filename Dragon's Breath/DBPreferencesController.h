@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <HAKeychain/HAKeychain.h>
+#import <Growl/GrowlApplicationBridge.h>
 
 #import "LaunchAtLoginController.h"
 

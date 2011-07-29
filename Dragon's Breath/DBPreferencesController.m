@@ -26,7 +26,9 @@
 
 
 - (void)loadCurrentSettings {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL configured = [defaults boolForKey:@"configured"];
+    
     NSString *username = [defaults stringForKey:@"username"];
     
     if (username != nil) {
@@ -44,7 +46,8 @@
     
     BOOL growlEnabled = [defaults boolForKey:@"growlEnabled"];
     
-    if (growlEnabled) {
+    if (growlEnabled || 
+        (configured == NO && [GrowlApplicationBridge isGrowlRunning])) {
         [self.growlPreference setState:NSOnState];
     } else {
         [self.growlPreference setState:NSOffState];
@@ -125,7 +128,11 @@
     if (success == NO) {
         [self reportKeychainError:error];
     }
-
+    
+    // Note that configuration has happened, so that user settings can override
+    // defaults.
+    [defaults setBool:YES forKey:@"configured"];
+    
     [self.delegate preferencesUpdated];
     [[self window] close];
 }
