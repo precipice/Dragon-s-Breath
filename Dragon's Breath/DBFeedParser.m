@@ -30,12 +30,13 @@
                            password];
     NSURL *feedURL = [NSURL URLWithString:urlString];
     
-    self.games = [[NSMutableArray alloc] initWithCapacity:10];
+    self.games = [NSMutableArray arrayWithCapacity:10];
     MWFeedParser *feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
     feedParser.delegate = self;
     feedParser.feedParseType = ParseTypeFull;
     feedParser.connectionType = ConnectionTypeAsynchronously;
     [feedParser parse];
+    [feedParser release];
 }
 
 

@@ -139,6 +139,7 @@
                                                       keyEquivalent:@""];
         [noMovesItem setEnabled:NO];
         [[statusItem menu] insertItem:noMovesItem atIndex:GAME_LIST_START_INDEX];
+        [noMovesItem release];
         [self updateVisibleStatus];
 
     } else {
@@ -157,6 +158,7 @@
             [gameItem setTarget:game];
             [gameItem setEnabled:YES];
             [[statusItem menu] insertItem:gameItem atIndex:insertionIndex];
+            [gameItem release];
             insertionIndex = insertionIndex + 1;
             
             if (growlEnabled && game.read == NO &&

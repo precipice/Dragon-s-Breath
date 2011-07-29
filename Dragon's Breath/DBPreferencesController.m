@@ -67,7 +67,8 @@
     [self.registerLink setAllowsEditingTextAttributes:YES];
     [self.registerLink setSelectable:YES];
 
-    NSMutableAttributedString* link = [[NSMutableAttributedString alloc] init];
+    NSMutableAttributedString* link = 
+        [[[NSMutableAttributedString alloc] init] autorelease];
     [link appendAttributedString:
      [NSAttributedString linkFromString:@"Register at DGS" 
                                 withURL:REGISTER_URL]];
@@ -95,10 +96,10 @@
     // Save the Growl preference.
     [defaults setBool:growlEnabled forKey:@"growlEnabled"];
     
-    // Save the Launch-on-Login preference.
+    // Save the Launch-on-Login preference.    
     LaunchAtLoginController *launchController = 
         [[LaunchAtLoginController alloc] init];
-	[launchController setLaunchAtLogin:launchOnLoginEnabled];
+	[launchController setLaunchAtLogin:launchOnLoginEnabled];    
 	[launchController release];
     
     // Save the username.
