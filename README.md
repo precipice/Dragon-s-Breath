@@ -17,8 +17,24 @@ A MacOS X menu bar notifier for
 
 ## Status ##
 
-The app is now fully functional. If you'd like to give it a try, you can
-[download v0.1.1](https://github.com/downloads/precipice/Dragon-s-Breath/Dragon-s-Breath-v0.1.1.zip),
+The initial stable release is finished and I've submitted it to the Mac App
+Store (it's in review). If you'd like to give it a try, you can 
+[download v1.0.0](https://github.com/downloads/precipice/Dragon-s-Breath/Dragon-s-Breath-v1.0.0.zip),
 drop it in your Applications folder, and run it. Feedback would be great.
+
+## Thanks ##
+
+Dragon's Breath uses code from other developers:
+
+* [Growl](http://growl.info/)
+* [MWFeedParser](https://github.com/mwaterfall/MWFeedParser)
+* [RegexKitLite](http://regexkit.sourceforge.net/RegexKitLite/)
+* [LaunchAtLoginController](https://github.com/Mozketo/LaunchAtLoginController)
+
+Please see 
+[LICENSE.txt](https://github.com/precipice/Dragon-s-Breath/blob/master/LICENSE.txt)
+for license statements for each of these projects and for Dragon's Breath
+itself (which uses the Apache License, v2.0). Thanks to all of the above for
+making their code available!
 
 - Marc Hedlund, marc@precipice.org
