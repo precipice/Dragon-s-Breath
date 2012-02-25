@@ -93,7 +93,8 @@
 - (void)stopTimer {
     if (refreshTimer != nil) {
         [refreshTimer invalidate];
-        [refreshTimer release];        
+        [refreshTimer release];
+        refreshTimer = nil;
     }
 }
 
