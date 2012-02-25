@@ -30,6 +30,7 @@ GrowlApplicationBridgeDelegate> {
     NSStatusItem *statusItem;
     NSImage *statusImage;
     NSImage *statusHighlightImage;
+    NSImage *statusDisabledHighlightImage;
     DBFeedParser *statusFeed;
     NSTimer *refreshTimer;
     NSArray *currentGames;

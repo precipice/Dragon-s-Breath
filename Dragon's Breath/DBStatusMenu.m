@@ -25,9 +25,11 @@
                    statusItemWithLength:NSSquareStatusItemLength] retain];
     statusImage = [NSImage imageNamed:@"disabled-icon.png"];
     statusHighlightImage = [NSImage imageNamed:@"black-icon.png"];
+    statusDisabledHighlightImage = [NSImage imageNamed:@"disabled-white-icon.png"];
     
     [statusItem setImage:statusImage];
-    [statusItem setAlternateImage:statusHighlightImage];
+    [statusItem setHighlightMode:YES];
+    [statusItem setAlternateImage:statusDisabledHighlightImage];
     
     [statusItem setMenu:statusMenu];
     [statusMenu setAutoenablesItems:NO];
@@ -359,6 +361,7 @@
     [self stopTimer];
     [statusImage release];
     [statusHighlightImage release];
+    [statusDisabledHighlightImage release];
     [statusFeed release];
     self.currentGames = nil;
     self.username = nil;
