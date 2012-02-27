@@ -42,6 +42,12 @@
 
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
     if (![item.title isEqualToString:@"Empty lists"]) {
+        // if we get an error, skip it
+        NSString *title = [item.title stringByConvertingHTMLToPlainText];
+        if ([title hasPrefix:@"ERROR:"]) {
+            return;
+        }
+
         NSString *regex = @"Game\\:\\s+(\\d+)\\s+\\-\\s+"
                            "Opponent\\:\\s+([\\s\\w\\d]+)\\s+"
                            "\\(([^\\)]+)\\)\\s+\\-\\s+"
@@ -56,9 +62,8 @@
                                                              @"move", 5,
                                                              NULL];
         NSMutableDictionary *gameFields = [NSMutableDictionary 
-                                           dictionaryWithDictionary:rawFields];
-        [gameFields setValue:[item.title stringByConvertingHTMLToPlainText] 
-                      forKey:@"title"];
+                                           dictionaryWithDictionary:rawFields];        
+        [gameFields setValue:title forKey:@"title"];
         [gameFields setValue:item.identifier forKey:@"identifier"];
         [gameFields setValue:item.link forKey:@"link"];
         [gameFields setValue:item.date forKey:@"date"];
