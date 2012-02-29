@@ -327,16 +327,9 @@
     return @"Dragon's Breath";
 }
 
-
-- (NSDictionary *)registrationDictionaryForGrowl {
-    NSArray *allNotifications = [NSArray arrayWithObjects:@"Game Waiting", nil];
-    NSArray *defaultNotifications = [NSArray arrayWithObjects:@"Game Waiting", nil];
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            allNotifications, GROWL_NOTIFICATIONS_ALL,
-            defaultNotifications, GROWL_NOTIFICATIONS_DEFAULT, 
-            nil];
+- (BOOL) hasNetworkClientEntitlement {
+    return YES;
 }
-
 
 - (void) growlNotificationWasClicked:(id)clickContext {
     NSString *details = (NSString *)clickContext;

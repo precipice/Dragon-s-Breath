@@ -15,8 +15,6 @@
 		49617B8513CD252400D9010D /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 49617B7B13CD252400D9010D /* RegexKitLite.m */; };
 		49652B6413D338C1008BD2D4 /* NSAttributedString+Link.m in Sources */ = {isa = PBXBuildFile; fileRef = 49652B6313D338C1008BD2D4 /* NSAttributedString+Link.m */; };
 		4972C0B113CE630F00B8B326 /* app-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4972C0B013CE630F00B8B326 /* app-icon.icns */; };
-		4981736B13DEA65600AE3DCB /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4981736A13DEA65600AE3DCB /* Growl.framework */; };
-		4981736D13DEA66000AE3DCB /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4981736A13DEA65600AE3DCB /* Growl.framework */; };
 		49B4343013E1C876000AF636 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B4340B13E1C876000AF636 /* LaunchAtLoginController.m */; };
 		49B4343113E1C876000AF636 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 49B4340C13E1C876000AF636 /* README.md */; };
 		49E8E97613DE8C2F0095B2BC /* HAKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E8E97513DE8C2F0095B2BC /* HAKeychain.framework */; };
@@ -38,6 +36,11 @@
 		49EDB0AB13CCE30000976DAB /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07713CCE2FF00976DAB /* NSDate+InternetDateTime.m */; };
 		49EDB0AC13CCE30000976DAB /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07913CCE2FF00976DAB /* NSString+HTML.m */; };
 		49EDB0BC13CCE56800976DAB /* DBFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB0BB13CCE56800976DAB /* DBFeedParser.m */; };
+		A2F5D50A14FDED7800937F22 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F5D50914FDED7800937F22 /* Growl.framework */; };
+		A2D0F4E414FDF77C0029D8C8 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = A2D0F4E314FDF77C0029D8C8 /* Growl Registration Ticket.growlRegDict */; };
+		A2D0F4E714FDFAA10029D8C8 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D0F4E614FDFAA10029D8C8 /* Growl.framework */; };
+		A2D0F4E814FDFB760029D8C8 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A2D0F4E614FDFAA10029D8C8 /* Growl.framework */; };
+		A2F5D4EF14FC482200937F22 /* disabled-white-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2F5D4EE14FC482200937F22 /* disabled-white-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,7 +51,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				49E8E97713DE8C350095B2BC /* HAKeychain.framework in CopyFiles */,
-				4981736D13DEA66000AE3DCB /* Growl.framework in CopyFiles */,
+				A2D0F4E814FDFB760029D8C8 /* Growl.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,11 +67,9 @@
 		492C6EA113E32A7300DB315F /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		49617B7913CD252400D9010D /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		49617B7B13CD252400D9010D /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
-		49649E2F13CCEC140004825B /* DBPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPassword.h; sourceTree = "<group>"; };
 		49652B6213D338C1008BD2D4 /* NSAttributedString+Link.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Link.h"; sourceTree = "<group>"; };
 		49652B6313D338C1008BD2D4 /* NSAttributedString+Link.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Link.m"; sourceTree = "<group>"; };
 		4972C0B013CE630F00B8B326 /* app-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "app-icon.icns"; sourceTree = "<group>"; };
-		4981736A13DEA65600AE3DCB /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		49B4340A13E1C876000AF636 /* LaunchAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAtLoginController.h; sourceTree = "<group>"; };
 		49B4340B13E1C876000AF636 /* LaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAtLoginController.m; sourceTree = "<group>"; };
 		49B4340C13E1C876000AF636 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -107,6 +108,10 @@
 		49EDB07913CCE2FF00976DAB /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		49EDB0BA13CCE56800976DAB /* DBFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBFeedParser.h; sourceTree = "<group>"; };
 		49EDB0BB13CCE56800976DAB /* DBFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFeedParser.m; sourceTree = "<group>"; };
+		A2D0F4E314FDF77C0029D8C8 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
+		A2D0F4E614FDFAA10029D8C8 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
+		A2F5D4EE14FC482200937F22 /* disabled-white-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disabled-white-icon.png"; sourceTree = "<group>"; };
+		A2F5D50714FCA78800937F22 /* Dragon's Breath.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Dragon's Breath.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +123,7 @@
 				492C6E9F13E3263A00DB315F /* Security.framework in Frameworks */,
 				49EA799813CCC92D0021CA72 /* Cocoa.framework in Frameworks */,
 				49E8E97613DE8C2F0095B2BC /* HAKeychain.framework in Frameworks */,
-				4981736B13DEA65600AE3DCB /* Growl.framework in Frameworks */,
+				A2D0F4E714FDFAA10029D8C8 /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +169,7 @@
 		49EA799613CCC92D0021CA72 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4981736A13DEA65600AE3DCB /* Growl.framework */,
+				A2D0F4E614FDFAA10029D8C8 /* Growl.framework */,
 				49E8E97513DE8C2F0095B2BC /* HAKeychain.framework */,
 				49EA799713CCC92D0021CA72 /* Cocoa.framework */,
 				492C6EA113E32A7300DB315F /* ApplicationServices.framework */,
@@ -187,6 +192,7 @@
 		49EA799D13CCC92D0021CA72 /* Dragon's Breath */ = {
 			isa = PBXGroup;
 			children = (
+				A2F5D50714FCA78800937F22 /* Dragon's Breath.entitlements */,
 				49EA79A913CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.h */,
 				49EA79AA13CCC92D0021CA72 /* Dragon_s_BreathAppDelegate.m */,
 				4923CF7E13CD667E00FD5F6B /* DBGame.h */,
@@ -216,7 +222,7 @@
 				49EA79A313CCC92D0021CA72 /* Dragon's Breath-Prefix.pch */,
 				49EA79A413CCC92D0021CA72 /* main.m */,
 				49EA79A613CCC92D0021CA72 /* Credits.rtf */,
-				49649E2F13CCEC140004825B /* DBPassword.h */,
+				A2D0F4E314FDF77C0029D8C8 /* Growl Registration Ticket.growlRegDict */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -328,6 +334,8 @@
 				4972C0B113CE630F00B8B326 /* app-icon.icns in Resources */,
 				491381D713D0C9B6001A5081 /* PreferencesWindow.xib in Resources */,
 				49B4343113E1C876000AF636 /* README.md in Resources */,
+				A2F5D4EF14FC482200937F22 /* disabled-white-icon.png in Resources */,
+				A2D0F4E414FDF77C0029D8C8 /* Growl Registration Ticket.growlRegDict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +440,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "Dragon's Breath/Dragon's Breath.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -446,6 +456,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -454,6 +465,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "Dragon's Breath/Dragon's Breath.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -468,6 +481,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
