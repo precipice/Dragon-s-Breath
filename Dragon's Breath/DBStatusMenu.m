@@ -331,16 +331,6 @@
     return YES;
 }
 
-- (NSDictionary *)registrationDictionaryForGrowl {
-    NSArray *allNotifications = [NSArray arrayWithObjects:@"Game Waiting", nil];
-    NSArray *defaultNotifications = [NSArray arrayWithObjects:@"Game Waiting", nil];
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            allNotifications, GROWL_NOTIFICATIONS_ALL,
-            defaultNotifications, GROWL_NOTIFICATIONS_DEFAULT, 
-            nil];
-}
-
-
 - (void) growlNotificationWasClicked:(id)clickContext {
     NSString *details = (NSString *)clickContext;
     NSUInteger index = [currentGames indexOfObjectPassingTest:^BOOL(id obj, 
