@@ -12,7 +12,6 @@
 
 #import "DBFeedParser.h"
 #import "DBGame.h"
-#import "DBPassword.h"
 #import "DBPreferencesController.h"
 
 #define NOT_CONFIGURED @"Not Configured"
@@ -30,6 +29,7 @@ GrowlApplicationBridgeDelegate> {
     NSStatusItem *statusItem;
     NSImage *statusImage;
     NSImage *statusHighlightImage;
+    NSImage *statusDisabledHighlightImage;
     DBFeedParser *statusFeed;
     NSTimer *refreshTimer;
     NSArray *currentGames;
@@ -37,6 +37,7 @@ GrowlApplicationBridgeDelegate> {
     DBPreferencesController *prefs;
     NSString *username;
     NSString *password;
+    NSInteger refreshInterval;
     BOOL growlEnabled;
 }
 

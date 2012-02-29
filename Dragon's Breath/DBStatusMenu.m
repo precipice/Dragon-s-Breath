@@ -25,9 +25,11 @@
                    statusItemWithLength:NSSquareStatusItemLength] retain];
     statusImage = [NSImage imageNamed:@"disabled-icon.png"];
     statusHighlightImage = [NSImage imageNamed:@"black-icon.png"];
+    statusDisabledHighlightImage = [NSImage imageNamed:@"disabled-white-icon.png"];
     
     [statusItem setImage:statusImage];
-    [statusItem setAlternateImage:statusHighlightImage];
+    [statusItem setHighlightMode:YES];
+    [statusItem setAlternateImage:statusDisabledHighlightImage];
     
     [statusItem setMenu:statusMenu];
     [statusMenu setAutoenablesItems:NO];
@@ -57,7 +59,8 @@
 
 - (void)loadPreferences {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    growlEnabled = [defaults boolForKey:@"growlEnabled"];    
+    refreshInterval = [defaults integerForKey:@"refreshInterval"];
+    growlEnabled = [defaults boolForKey:@"growlEnabled"];
     self.username = [defaults stringForKey:@"username"];    
     self.password = [HAKeychain findPasswordForService:KEYCHAIN_SERVER
                                                account:self.username
@@ -81,25 +84,29 @@
 
 - (void)startTimer {
     [self stopTimer];
-    refreshTimer = [NSTimer scheduledTimerWithTimeInterval:300.0
-                                                    target:self
-                                                  selector:@selector(refresh:)
-                                                  userInfo:nil
-                                                   repeats:YES];
-    [refreshTimer retain];    
+    
+    if (refreshInterval > 0) {
+        refreshTimer = [NSTimer scheduledTimerWithTimeInterval:refreshInterval * 60
+                                                        target:self
+                                                      selector:@selector(refresh:)
+                                                      userInfo:nil
+                                                       repeats:YES];
+        [refreshTimer retain];
+    }
 }
 
 
 - (void)stopTimer {
     if (refreshTimer != nil) {
         [refreshTimer invalidate];
-        [refreshTimer release];        
+        [refreshTimer release];
+        refreshTimer = nil;
     }
 }
 
 
 - (void)receiveWakeNote:(NSNotification*)note {
-    if ([self hasValidCredentials]) {
+    if (refreshInterval > 0 && [self hasValidCredentials]) {
         // Kill off the current refresh schedule.
         [self stopTimer];
         
@@ -303,8 +310,10 @@
 - (void)preferencesUpdated {
     [self loadPreferences];
     if ([self hasValidCredentials]) {
-        [self refresh:nil];
-        [self startTimer];
+        if (refreshInterval > 0) {
+            [self refresh:nil];
+            [self startTimer];
+        }
     } else {
         [self showSettings:nil];
     }
@@ -327,16 +336,9 @@
     return @"Dragon's Breath";
 }
 
-
-- (NSDictionary *)registrationDictionaryForGrowl {
-    NSArray *allNotifications = [NSArray arrayWithObjects:@"Game Waiting", nil];
-    NSArray *defaultNotifications = [NSArray arrayWithObjects:@"Game Waiting", nil];
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            allNotifications, GROWL_NOTIFICATIONS_ALL,
-            defaultNotifications, GROWL_NOTIFICATIONS_DEFAULT, 
-            nil];
+- (BOOL) hasNetworkClientEntitlement {
+    return YES;
 }
-
 
 - (void) growlNotificationWasClicked:(id)clickContext {
     NSString *details = (NSString *)clickContext;
@@ -359,6 +361,7 @@
     [self stopTimer];
     [statusImage release];
     [statusHighlightImage release];
+    [statusDisabledHighlightImage release];
     [statusFeed release];
     self.currentGames = nil;
     self.username = nil;
