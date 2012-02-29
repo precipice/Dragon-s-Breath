@@ -327,6 +327,9 @@
     return @"Dragon's Breath";
 }
 
+- (BOOL) hasNetworkClientEntitlement {
+    return YES;
+}
 
 - (NSDictionary *)registrationDictionaryForGrowl {
     NSArray *allNotifications = [NSArray arrayWithObjects:@"Game Waiting", nil];

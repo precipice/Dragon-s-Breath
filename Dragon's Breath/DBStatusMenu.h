@@ -12,7 +12,6 @@
 
 #import "DBFeedParser.h"
 #import "DBGame.h"
-#import "DBPassword.h"
 #import "DBPreferencesController.h"
 
 #define NOT_CONFIGURED @"Not Configured"
