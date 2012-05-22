@@ -38,6 +38,7 @@
 		49EDB0AB13CCE30000976DAB /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07713CCE2FF00976DAB /* NSDate+InternetDateTime.m */; };
 		49EDB0AC13CCE30000976DAB /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB07913CCE2FF00976DAB /* NSString+HTML.m */; };
 		49EDB0BC13CCE56800976DAB /* DBFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EDB0BB13CCE56800976DAB /* DBFeedParser.m */; };
+		A2F5D4EF14FC482200937F22 /* disabled-white-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2F5D4EE14FC482200937F22 /* disabled-white-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -107,6 +108,7 @@
 		49EDB07913CCE2FF00976DAB /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		49EDB0BA13CCE56800976DAB /* DBFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBFeedParser.h; sourceTree = "<group>"; };
 		49EDB0BB13CCE56800976DAB /* DBFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFeedParser.m; sourceTree = "<group>"; };
+		A2F5D4EE14FC482200937F22 /* disabled-white-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disabled-white-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 		49EA79B413CCCC500021CA72 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A2F5D4EE14FC482200937F22 /* disabled-white-icon.png */,
 				4972C0B013CE630F00B8B326 /* app-icon.icns */,
 				49EA79B513CCCC500021CA72 /* black-icon.png */,
 				49EA79B613CCCC500021CA72 /* disabled-icon.png */,
@@ -328,6 +331,7 @@
 				4972C0B113CE630F00B8B326 /* app-icon.icns in Resources */,
 				491381D713D0C9B6001A5081 /* PreferencesWindow.xib in Resources */,
 				49B4343113E1C876000AF636 /* README.md in Resources */,
+				A2F5D4EF14FC482200937F22 /* disabled-white-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
