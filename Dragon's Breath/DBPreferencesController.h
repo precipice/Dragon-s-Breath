@@ -17,6 +17,10 @@
 
 #define KEYCHAIN_SERVER @"www.dragongoserver.net"
 #define REGISTER_URL @"http://www.dragongoserver.net/register.php"
+#define DEFAULT_REFRESH_INTERVAL_SLIDER_VALUE 12
+#define DEFAULT_REFRESH_INTERVAL 5
+static const int REFRESH_INTERVALS[6] = {-1, 5, 10, 15, 30, 60};
+static const int SLIDER_VALUES[6]     = {0, 12, 24, 36, 48, 60};
 
 @interface DBPreferencesController : NSWindowController <NSTextFieldDelegate> {
 @private
@@ -37,6 +41,8 @@
 @property(nonatomic, retain) IBOutlet NSButton *launchAtLoginPreference;
 @property(nonatomic, retain) IBOutlet NSButton *okayButton;
 @property(nonatomic, retain) IBOutlet NSButton *cancelButton;
+@property(nonatomic, retain) IBOutlet NSSlider *refreshIntervalSlider;
+
 @property(nonatomic, retain) id delegate;
 
 - (void)loadCurrentSettings;
