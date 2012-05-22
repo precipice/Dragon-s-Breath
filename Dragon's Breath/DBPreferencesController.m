@@ -12,8 +12,8 @@
 @implementation DBPreferencesController
 
 @synthesize registerLink, usernameCell, passwordCell, growlPreference,
-            launchAtLoginPreference, okayButton, cancelButton, delegate;
-
+            launchAtLoginPreference, okayButton, cancelButton, refreshIntervalSlider,
+            delegate;
 
 - (id)initWithWindow:(NSWindow *)window {
     self = [super initWithWindow:window];
@@ -63,6 +63,17 @@
     } else {
         [self.launchAtLoginPreference setState:NSOffState];
     }
+
+    NSInteger refreshInterval = [defaults integerForKey:@"refreshInterval"];
+    // look up sliderValue and set the slider
+    NSInteger sliderValue = DEFAULT_REFRESH_INTERVAL_SLIDER_VALUE;
+    int numValues = sizeof(REFRESH_INTERVALS) / sizeof(REFRESH_INTERVALS[0]);
+    for (int i=0; i < numValues  ; i++) {
+        if (REFRESH_INTERVALS[i] == refreshInterval) {
+            sliderValue = SLIDER_VALUES[i];
+        }
+    }
+    [self.refreshIntervalSlider setIntegerValue:sliderValue];
 }
 
 
@@ -95,6 +106,20 @@
     BOOL growlEnabled  = [self.growlPreference state] == NSOnState;
     BOOL launchOnLoginEnabled = [self.launchAtLoginPreference state] == NSOnState;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    // Save the Refresh interval preference
+    NSInteger sliderValue = [self.refreshIntervalSlider integerValue];
+    // look up refreshInterval for the sliderValue and store it
+    NSInteger refreshInterval = DEFAULT_REFRESH_INTERVAL;
+    int numValues = sizeof(SLIDER_VALUES) / sizeof(SLIDER_VALUES[0]);
+    for (int i=0; i < numValues  ; i++) {
+        
+        if ((NSInteger)SLIDER_VALUES[i] == sliderValue) {
+            refreshInterval = REFRESH_INTERVALS[i];
+            break;
+        }
+    }
+    [defaults setInteger:refreshInterval forKey:@"refreshInterval"];
     
     // Save the Growl preference.
     [defaults setBool:growlEnabled forKey:@"growlEnabled"];
